@@ -31,7 +31,7 @@ cRad = (math.radians(centerPoint.x()), math.radians(centerPoint.y()))
 latR = minorR * math.cos(cRad[1])
 cor = (
     latR * math.cos(cRad[0]),
-    latR * math.cos(cRad[0]),
+    latR * math.sin(cRad[0]),
     minorR * math.sin(cRad[1])
 )
 
