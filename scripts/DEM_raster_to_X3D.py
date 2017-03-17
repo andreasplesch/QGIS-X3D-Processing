@@ -8,7 +8,7 @@ from qgis.PyQt.QtCore import QDateTime
 from processing.core.GeoAlgorithmExecutionException import GeoAlgorithmExecutionException
 
 # constants
-MAXDIM=10000 # X3D is all text
+MAXDIM=1000 # X3D is all text
 X3DProjections={'utm':'UTM', 'longlat':'GD'} # as 'Acronyms'
 X3DEllipsoids = { # http://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/components/geodata.html#t-earthellipsoids
 (6377563.396, 299.3249646): 'AA', # Airy 1830
