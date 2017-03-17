@@ -11,17 +11,14 @@ import math
 majorR = 6378137
 f = 298.257223563
 minorR = majorR * ( 1 - 1/f ) + centerOfRotation_height
-LAT2METER = 1000 * 2 * 3.14 * minorR / 360
+LAT2METER = 2 * 3.14 * minorR / 360
 
 #r=processing.getObject(input_raster)
 #use tile index processing to generate outline
 #use reproject layer to reproject to GD WE = epsg:4326
 outline = processing.runalg( 'gdalogr:tileindex', [input_raster], 'location', False, None)
-#print("%s" % outline)
 outlineWE = processing.runalg( 'qgis:reprojectlayer', outline['OUTPUT'],'EPSG:4326', None)
-#print("%s" % outlineWE['OUTPUT'])
 o = processing.getObject(outlineWE['OUTPUT'])
-#print("%s" % o)
 
 e = o.extent()
 centerPoint = e.center()
