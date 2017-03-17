@@ -22,3 +22,13 @@ Steps to try out:
  -- save as jpg script (probably not useful)
  - color contour option: use 1d texture and generated UVs where U is normalized elevation
  ...
+
+## Examples
+
+small
+
+
+
+large (takes a couple minutes to display):
+
+https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/x3dom2.html
