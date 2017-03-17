@@ -1,0 +1,301 @@
+{
+    "values": {
+        "inputs": {
+            "dem": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 40.0, 
+                            "x": 328.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "dem", 
+                            "showSublayersDialog": true, 
+                            "default": null, 
+                            "value": null, 
+                            "exported": null, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "dem"
+                        }, 
+                        "class": "processing.core.parameters.ParameterRaster"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "yscale": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 39.0, 
+                            "x": 107.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "yscale", 
+                            "min": 0, 
+                            "default": 1, 
+                            "max": 1000, 
+                            "value": 1, 
+                            "hidden": false, 
+                            "isInteger": true, 
+                            "optional": false, 
+                            "description": "vertical exaggeration"
+                        }, 
+                        "class": "processing.core.parameters.ParameterNumber"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }
+        }, 
+        "helpContent": {}, 
+        "group": "X3D", 
+        "name": "raster2scene", 
+        "algs": {
+            "SCRIPTINSERTX3DNODEINTOSCENE_1": {
+                "values": {
+                    "name": "SCRIPTINSERTX3DNODEINTOSCENE_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 193.0, 
+                            "x": 768.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "X3D_scene": {
+                            "values": {
+                                "alg": "SCRIPTMAKEEMPTYSCENE_1", 
+                                "output": "output_file"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "X3D_node": {
+                            "values": {
+                                "alg": "SCRIPTGEOLOCATEDVIEWPOINTFROMRASTER_1", 
+                                "output": "output_viewpoint_file"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:insertx3dnodeintoscene", 
+                    "description": "insert X3D node into scene"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTINSERTX3DNODEINTOSCENE_2": {
+                "values": {
+                    "name": "SCRIPTINSERTX3DNODEINTOSCENE_2", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "output_X3D_scene": {
+                            "values": {
+                                "description": "demScene.x3d", 
+                                "pos": {
+                                    "values": {
+                                        "y": 403.0, 
+                                        "x": 770.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 303.0, 
+                            "x": 766.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "X3D_scene": {
+                            "values": {
+                                "alg": "SCRIPTINSERTX3DNODEINTOSCENE_1", 
+                                "output": "output_X3D_scene"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "X3D_node": {
+                            "values": {
+                                "alg": "SCRIPTX3DSHAPENODEFROMAPPEARANCEANDGEOMETRY_1", 
+                                "output": "output_X3D_Shape_file"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:insertx3dnodeintoscene", 
+                    "description": "insert X3D node into scene2"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTDEMRASTERTOGEOELEVATIONGRID_1": {
+                "values": {
+                    "name": "SCRIPTDEMRASTERTOGEOELEVATIONGRID_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 118.0, 
+                            "x": 333.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "significant_digits_in_output": 5.0, 
+                        "DEM_raster_layer": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "vertical_exaggeration": {
+                            "values": {
+                                "name": "yscale"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:demrastertogeoelevationgrid", 
+                    "description": "DEM raster to GeoElevationgrid"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTGENERATEX3DCOLORAPPEARANCE_1": {
+                "values": {
+                    "name": "SCRIPTGENERATEX3DCOLORAPPEARANCE_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 119.0, 
+                            "x": 112.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "emissiveColor": "0 0 0", 
+                        "diffuseColor": "0.8 0.8 0.8", 
+                        "shininess": 0.2, 
+                        "specularColor": "0 0 0", 
+                        "transparency": 0.0, 
+                        "ambientIntensity": 0.2
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:generatex3dcolorappearance", 
+                    "description": "generate X3D color Appearance"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTX3DSHAPENODEFROMAPPEARANCEANDGEOMETRY_1": {
+                "values": {
+                    "name": "SCRIPTX3DSHAPENODEFROMAPPEARANCEANDGEOMETRY_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 249.0, 
+                            "x": 554.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "X3D_Geometry_file": {
+                            "values": {
+                                "alg": "SCRIPTDEMRASTERTOGEOELEVATIONGRID_1", 
+                                "output": "X3D_GeoElevationGrid_file"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "appearance": {
+                            "values": {
+                                "alg": "SCRIPTGENERATEX3DCOLORAPPEARANCE_1", 
+                                "output": "Out"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:x3dshapenodefromappearanceandgeometry", 
+                    "description": "X3D Shape node from Appearance and  Geometry"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTGEOLOCATEDVIEWPOINTFROMRASTER_1": {
+                "values": {
+                    "name": "SCRIPTGEOLOCATEDVIEWPOINTFROMRASTER_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 117.0, 
+                            "x": 551.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_raster": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "mode": 0, 
+                        "centerOfRotation_height": 0.0
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:geolocatedviewpointfromraster", 
+                    "description": "GeoLocated Viewpoint from raster"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTMAKEEMPTYSCENE_1": {
+                "values": {
+                    "name": "SCRIPTMAKEEMPTYSCENE_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 51.0, 
+                            "x": 756.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {}, 
+                    "active": true, 
+                    "consoleName": "script:makeemptyscene", 
+                    "description": "make_empty_scene"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }
+        }
+    }, 
+    "class": "processing.modeler.ModelerAlgorithm.ModelerAlgorithm"
+}
