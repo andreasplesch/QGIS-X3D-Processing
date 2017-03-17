@@ -15,12 +15,16 @@ Steps to try out:
 
  - finalize DEM raster to GeoElevationGrid: better metadata from qgis, doc strings
  - document other scripts
+ - geoOrigin option
  - use wiki for example processing
  - add draping of other raster as texture: think about how to modularize
  -- warp to crs of other raster script
  -- crop/enlarge to extent of other raster script
  -- save as jpg script (probably not useful)
  - color contour option: use 1d texture and generated UVs where U is normalized elevation
+ - extrude polygons from vector layer by height attribute or constant
+ - need to be in projected crs, then just use first point as reference, and first point geographic coordinates for geolocation
+ 
  ...
 
 ## Examples
