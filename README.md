@@ -34,3 +34,5 @@ large (takes a couple minutes to display):
 https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/x3dom2.html
 
 ## Documentation bits
+
+![image](https://cloud.githubusercontent.com/assets/6171115/24065920/feda64fc-0b44-11e7-9f4b-8bbc30e31c88.png)
