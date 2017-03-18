@@ -1,7 +1,0 @@
-{"ALG_DESC": "export a DEM raster layer to X3D GeoElevationGrid xml file",
-"significant_digits_in_output": "default 6, since  the elevation data is the bulk of the file size, limiting the accuracy to say 4 significant digits will reduce the file size. Up to 10 or 11 for full accuracy.",
-"ALG_CREATOR": "(c) 2017 Andreas Plesch",
-"X3D_GeoElevationGrid_file": "file name for the generated GeoElevationgGrid. The metadata field is populated as well with relevant name:value pairs.",
-"ALG_VERSION": "0.1",
-"ALG_HELP_CREATOR": "Andreas Plesch",
-"DEM_raster_layer": "raster layer to be exported"}
