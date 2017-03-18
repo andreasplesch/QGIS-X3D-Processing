@@ -1,6 +1,56 @@
 {
     "values": {
         "inputs": {
+            "smoothrendering": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 40.0, 
+                            "x": 541.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "smoothrendering", 
+                            "default": true, 
+                            "value": true, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "smooth rendering"
+                        }, 
+                        "class": "processing.core.parameters.ParameterBoolean"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "diffusecolorrgb": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 120.0, 
+                            "x": 108.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "diffusecolorrgb", 
+                            "default": "0.8 0.8 0.8", 
+                            "value": "0.8 0.8 0.8", 
+                            "multiline": false, 
+                            "evaluateExpressions": false, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "diffuse color R G B"
+                        }, 
+                        "class": "processing.core.parameters.ParameterString"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
             "dem": {
                 "values": {
                     "pos": {
@@ -182,6 +232,12 @@
                     "dependencies": [], 
                     "params": {
                         "significant_digits_in_output": 5.0, 
+                        "smooth_rendering": {
+                            "values": {
+                                "name": "smoothrendering"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
                         "DEM_raster_layer": {
                             "values": {
                                 "name": "dem"
@@ -209,15 +265,20 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 119.0, 
-                            "x": 112.0
+                            "y": 251.0, 
+                            "x": 121.0
                         }, 
                         "class": "point"
                     }, 
                     "dependencies": [], 
                     "params": {
                         "emissiveColor": "0 0 0", 
-                        "diffuseColor": "0.8 0.8 0.8", 
+                        "diffuseColor": {
+                            "values": {
+                                "name": "diffusecolorrgb"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
                         "shininess": 0.2, 
                         "specularColor": "0 0 0", 
                         "transparency": 0.0, 
