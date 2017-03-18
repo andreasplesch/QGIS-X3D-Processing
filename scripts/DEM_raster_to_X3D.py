@@ -1,9 +1,17 @@
+'''
+QGIS Processing script
+(c) 2017 Andreas Plesch
+convert raster layer with DEM data to xml encoded X3D GeoElevationgrid node
+'''
+
 ##X3D=group
 ##DEM raster to GeoElevationgrid=name
 ##DEM_raster_layer=raster
 ##vertical_exaggeration=number 1
 ##significant_digits_in_output=number 6
 ##X3D_GeoElevationGrid_file=output file
+
+import os.path
 from qgis.PyQt.QtCore import QDateTime
 from processing.core.GeoAlgorithmExecutionException import GeoAlgorithmExecutionException
 
@@ -80,7 +88,6 @@ if projection == 'UTM':
 
 # ellipsoid: directly from major axis, flattening values, mapped to 2 letter code
 # get major axis, flattengin from wkt SPHEROID:
-# spheroid=[float(str) for str in crsWkt[crsWkt.find('SPHEROID'):].split(',')[1:3]] # 'major axis', 'flattening'
 # then use dictionary to lookup code:
 
 spheroid = [float(str) for str in crsWkt[crsWkt.find('SPHEROID'):].split(',')[1:3]] # 'major axis', 'flattening'
@@ -92,16 +99,14 @@ ellipsoidCode = X3DEllipsoids[spheroidTuple] # see above
 
 geoSystem.append(ellipsoidCode)
     
-gS = ['"%s"' % s for s in geoSystem] # add double quotes for multi string
+gS = ['"%s"' % s for s in geoSystem] # add double quotes for MFString
 
 # origin
 e = r.extent()
 geoGridOrigin = [e.xMinimum(), e.yMaximum(), 0] # values are provided starting from NW corner
 
-# other fields as input: yScale, solid, ...
-
 # height
-values = processing.scanraster(r, progress)
+values = processing.scanraster(r, progress) # reads only one line into memory
 
 f = open(X3D_GeoElevationGrid_file, 'w')
 
@@ -111,10 +116,10 @@ f.write( "  geoGridOrigin='%f %f %f'\n" % (geoGridOrigin[1], geoGridOrigin[0],  
 f.write( "  xDimension='%d'\n" % xDimension)
 f.write( "  zDimension='%d'\n" % zDimension)
 f.write( "  xSpacing='%f'\n" % xSpacing )
-f.write( "  zSpacing='%f'\n" % -zSpacing ) # need to reverse since starting from NW, flipped normals
+f.write( "  zSpacing='%f'\n" % -zSpacing ) # reversed since starting from NW, flipped normals
 f.write( "  solid='false'\n" ) # need to show backface
 f.write( "  yScale='%s'\n" % vertical_exaggeration )
-if geoSystem != ['GD','WE']:
+if geoSystem != ['GD','WE']: # default
     f.write( "  geoSystem='%s'\n" % " ".join(gS) )
 f.write( "  height=' ")
 for v in values:
@@ -124,9 +129,19 @@ f.write( "'>\n" )
 #f.write( ">\n" )
 
 f.write( "  <MetadataSet name='Raster metadata' >\n")
-f.write( "    <MetadataString name='title' value='%s' ></MetadataString>\n" % r.name() )
-f.write( "    <MetadataString name='attribution' value='%s' ></MetadataString>\n" % r.attribution() )
-f.write( "    <MetadataString name='attributionReference' value='%s' ></MetadataString>\n" % r.attributionUrl() )
+f.write( "    <MetadataString name='title' value='\"%s\"' ></MetadataString>\n" % r.name() )
+f.write( "    <MetadataString name='attribution' value='\"%s\"' ></MetadataString>\n" % r.attribution() )
+f.write( "    <MetadataString name='attributionReference' value='\"%s\"' ></MetadataString>\n" % r.attributionUrl() )
+f.write( "    <MetadataString name='sourceFile' value='\"%s\"' ></MetadataString>\n" % os.path.basename(r.source() ))
+f.write( "    <MetadataDouble name='noDataValue' value='%.*G' ></MetadataDouble>\n" % (int(significant_digits_in_output), noDataValue))
+if rData.srcHasNoDataValue(1):
+    f.write( "    <MetadataDouble name='sourceNoDataValue' value='%G' ></MetadataDouble>\n" % (rData.srcNoDataValue(1)))
+if rData.hasStatistics(1):
+    stats=rData.bandStatistics(1)
+    f.write( "    <MetadataDouble name='minimum' value='%G' ></MetadataDouble>\n" % stats.minimumValue)
+    f.write( "    <MetadataDouble name='maximum' value='%G' ></MetadataDouble>\n" % stats.maximumValue)
+    f.write( "    <MetadataDouble name='mean' value='%G' ></MetadataDouble>\n" % stats.mean)
+    f.write( "    <MetadataDouble name='standardDeviation' value='%G' ></MetadataDouble>\n" % stats.stdDev)
 f.write( "    <MetadataString name='generator' value='QGIS Processing DEM_raster_to_X3D.py' ></MetadataString>\n" )
 now = QDateTime.currentDateTime()
 f.write( "    <MetadataString name='generated' value='%s' ></MetadataString>\n" % now.toString() )
