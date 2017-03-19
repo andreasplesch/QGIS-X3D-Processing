@@ -184,27 +184,6 @@
         "group": "X3D", 
         "name": "raster2x3dom", 
         "algs": {
-            "SCRIPTMAKEEMPTYX3DOMPAGE_1": {
-                "values": {
-                    "name": "SCRIPTMAKEEMPTYX3DOMPAGE_1", 
-                    "paramsFolded": true, 
-                    "outputs": {}, 
-                    "outputsFolded": true, 
-                    "pos": {
-                        "values": {
-                            "y": 49.0, 
-                            "x": 787.0
-                        }, 
-                        "class": "point"
-                    }, 
-                    "dependencies": [], 
-                    "params": {}, 
-                    "active": true, 
-                    "consoleName": "script:makeemptyx3dompage", 
-                    "description": "make_empty_x3dom_page"
-                }, 
-                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
-            }, 
             "SCRIPTINSERTX3DNODEINTOHTML_2": {
                 "values": {
                     "name": "SCRIPTINSERTX3DNODEINTOHTML_2", 
@@ -261,6 +240,27 @@
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.Algorithm"
             }, 
+            "SCRIPTWRITEEMPTYX3DOMHTML_1": {
+                "values": {
+                    "name": "SCRIPTWRITEEMPTYX3DOMHTML_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 40.0, 
+                            "x": 777.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {}, 
+                    "active": true, 
+                    "consoleName": "script:writeemptyx3domhtml", 
+                    "description": "write empty x3dom html"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
             "SCRIPTINSERTX3DNODEINTOHTML_1": {
                 "values": {
                     "name": "SCRIPTINSERTX3DNODEINTOHTML_1", 
@@ -286,7 +286,7 @@
                         }, 
                         "X3D_html": {
                             "values": {
-                                "alg": "SCRIPTMAKEEMPTYX3DOMPAGE_1", 
+                                "alg": "SCRIPTWRITEEMPTYX3DOMHTML_1", 
                                 "output": "output_file"
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
