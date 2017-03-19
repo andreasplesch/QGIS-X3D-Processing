@@ -6,7 +6,7 @@
 ##output_geoviewpoint_file=output file
 ##output_geoviewpoint_string=output string
 
-import math
+#import math
 
 majorR = 6378137
 f = 298.257223563
@@ -24,6 +24,7 @@ e = o.extent()
 centerPoint = e.center()
 height = e.height() * LAT2METER
 
+'''
 cRad = (math.radians(centerPoint.x()), math.radians(centerPoint.y()))
 latR = minorR * math.cos(cRad[1])
 cor = (
@@ -31,7 +32,7 @@ cor = (
     latR * math.sin(cRad[0]),
     minorR * math.sin(cRad[1])
 )
-
+'''
 orientation = '1 0 0 -1.57' #down
 
 description = 'map view'
@@ -42,13 +43,13 @@ out = "<GeoViewpoint DEF='%s'\n" % DEF
 out+= "  description='%s'\n" % description
 out+= "  position='%s %s %s'\n" % (centerPoint.y(), centerPoint.x(), height)
 out+= "  orientation='%s'\n" % orientation
-out+= "  centerOfRotation='%s %s %s'" % cor # geocentric
+out+= "  centerOfRotation='%s %s %s'" % (centerPoint.y(), centerPoint.x(), centerOfRotation_height) #cor is geocentric
 #out+= ' geoSystem=\'"GD" "WE"\'\n ' # default
-out+= "></GeoViewpoint>\n"
+out+= ">\n </GeoViewpoint>\n"
 
 f=open(output_geoviewpoint_file, 'w')
 f.write(out)
 f.close()
 
 output_geoviewpoint_string = out
-print(out)
+#print(out)
