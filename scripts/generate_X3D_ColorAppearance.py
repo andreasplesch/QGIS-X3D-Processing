@@ -1,3 +1,8 @@
+'''
+QGIS processing script
+(c) 2017 Andreas Plesch
+generate a XML encoded X3D Appearance node with a color material
+'''
 ##X3D=group
 ##generate X3D color Appearance=name
 ##ambientIntensity=number 0.2
@@ -6,7 +11,7 @@
 ##shininess=number 0.2
 ##specularColor=string 0 0 0
 ##transparency=number 0
-##Out=output string
+##output_string=output string
 
 ambientIntensityDefault = 0.2
 diffuseColorDefault = '0.8 0.8 0.8'
@@ -34,4 +39,5 @@ if transparency != transparencyDefault:
 Out+='></Material>'
 Out+='</Appearance>'
 
-print(Out)
+output_string = Out
+#print(Out)
