@@ -6,7 +6,7 @@
                     "pos": {
                         "values": {
                             "y": 40.0, 
-                            "x": 541.0
+                            "x": 327.0
                         }, 
                         "class": "point"
                     }, 
@@ -15,64 +15,12 @@
                             "isAdvanced": false, 
                             "name": "smoothrendering", 
                             "default": true, 
-                            "value": true, 
                             "hidden": false, 
                             "optional": false, 
+                            "value": true, 
                             "description": "smooth rendering"
                         }, 
                         "class": "processing.core.parameters.ParameterBoolean"
-                    }
-                }, 
-                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
-            }, 
-            "diffusecolorrgb": {
-                "values": {
-                    "pos": {
-                        "values": {
-                            "y": 120.0, 
-                            "x": 108.0
-                        }, 
-                        "class": "point"
-                    }, 
-                    "param": {
-                        "values": {
-                            "isAdvanced": false, 
-                            "name": "diffusecolorrgb", 
-                            "default": "0.8 0.8 0.8", 
-                            "value": "0.8 0.8 0.8", 
-                            "multiline": false, 
-                            "evaluateExpressions": false, 
-                            "hidden": false, 
-                            "optional": false, 
-                            "description": "diffuse color R G B"
-                        }, 
-                        "class": "processing.core.parameters.ParameterString"
-                    }
-                }, 
-                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
-            }, 
-            "dem": {
-                "values": {
-                    "pos": {
-                        "values": {
-                            "y": 39.0, 
-                            "x": 329.0
-                        }, 
-                        "class": "point"
-                    }, 
-                    "param": {
-                        "values": {
-                            "isAdvanced": false, 
-                            "name": "dem", 
-                            "showSublayersDialog": true, 
-                            "default": null, 
-                            "value": null, 
-                            "exported": null, 
-                            "hidden": false, 
-                            "optional": false, 
-                            "description": "dem"
-                        }, 
-                        "class": "processing.core.parameters.ParameterRaster"
                     }
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
@@ -100,6 +48,109 @@
                             "description": "vertical exaggeration"
                         }, 
                         "class": "processing.core.parameters.ParameterNumber"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "shininess": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 259.0, 
+                            "x": 110.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "shininess", 
+                            "min": 0.0, 
+                            "default": 0.8, 
+                            "max": 1.0, 
+                            "value": 0.8, 
+                            "hidden": false, 
+                            "isInteger": false, 
+                            "optional": false, 
+                            "description": "shininess"
+                        }, 
+                        "class": "processing.core.parameters.ParameterNumber"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "openinbrowser": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 334.0, 
+                            "x": 542.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "openinbrowser", 
+                            "default": false, 
+                            "hidden": false, 
+                            "optional": true, 
+                            "value": false, 
+                            "description": "open in browser"
+                        }, 
+                        "class": "processing.core.parameters.ParameterBoolean"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "dem": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 50.0, 
+                            "x": 550.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "dem", 
+                            "showSublayersDialog": true, 
+                            "default": null, 
+                            "value": null, 
+                            "exported": null, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "dem"
+                        }, 
+                        "class": "processing.core.parameters.ParameterRaster"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "diffusecolorrgb": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 176.0, 
+                            "x": 110.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "diffusecolorrgb", 
+                            "default": "0.8 0.8 0.8", 
+                            "value": "0.8 0.8 0.8", 
+                            "multiline": false, 
+                            "evaluateExpressions": false, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "diffuse color R G B"
+                        }, 
+                        "class": "processing.core.parameters.ParameterString"
                     }
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
@@ -140,8 +191,8 @@
                                 "description": "output_x3dom_page.html", 
                                 "pos": {
                                     "values": {
-                                        "y": 444.0, 
-                                        "x": 781.0
+                                        "y": 447.0, 
+                                        "x": 770.0
                                     }, 
                                     "class": "point"
                                 }
@@ -159,6 +210,12 @@
                     }, 
                     "dependencies": [], 
                     "params": {
+                        "open_in_browser": {
+                            "values": {
+                                "name": "openinbrowser"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
                         "X3D_node": {
                             "values": {
                                 "alg": "SCRIPTX3DSHAPENODEFROMAPPEARANCEANDGEOMETRY_1", 
@@ -195,6 +252,7 @@
                     }, 
                     "dependencies": [], 
                     "params": {
+                        "open_in_browser": false, 
                         "X3D_node": {
                             "values": {
                                 "alg": "SCRIPTGEOLOCATEDVIEWPOINTFROMRASTER_1", 
@@ -265,8 +323,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 251.0, 
-                            "x": 121.0
+                            "y": 257.0, 
+                            "x": 325.0
                         }, 
                         "class": "point"
                     }, 
@@ -279,8 +337,13 @@
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
                         }, 
-                        "shininess": 0.2, 
-                        "specularColor": "0 0 0", 
+                        "shininess": {
+                            "values": {
+                                "name": "shininess"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "specularColor": "1 1 1", 
                         "transparency": 0.0, 
                         "ambientIntensity": 0.2
                     }, 
@@ -334,8 +397,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 120.0, 
-                            "x": 551.0
+                            "y": 171.0, 
+                            "x": 556.0
                         }, 
                         "class": "point"
                     }, 
