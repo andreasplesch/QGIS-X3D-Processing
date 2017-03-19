@@ -1,5 +1,7 @@
 '''
-append x3d node to existing xml x3d scene
+QGIS Processing script
+(c) 2017 Andreas Plesch
+append x3d node to existing x3d scene in a html file
 '''
 ##X3D=group
 ##insert X3D node into html=name
@@ -12,6 +14,7 @@ import xml.etree.ElementTree as ET
 #import xml.dom.minidom as DOM
 import webbrowser
 from PyQt4.QtCore import QUrl
+from processing.core.GeoAlgorithmExecutionException import GeoAlgorithmExecutionException
 
 doc = ET.parse(X3D_html)
 #doc=DOM.parse(X3D_scene)
@@ -21,7 +24,7 @@ scene = html.find('.//Scene') # first scene somewhere below
 if scene is None:
     scene = html.find('.//scene')
 if scene is None:
-    print('raise exception here')
+    raise GeoAlgorithmExecutionException('Could not find a <scene> element in %s' % X3D_html)
 #scene = doc.getElementsByTagName('Scene')[0]
 scene.append(ET.parse(X3D_node).getroot())
 #x3dNodeElement = DOM.parse(X3D_node).documentElement
