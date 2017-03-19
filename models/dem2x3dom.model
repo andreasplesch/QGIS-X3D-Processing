@@ -93,9 +93,9 @@
                             "isAdvanced": false, 
                             "name": "userastercolorizecolor", 
                             "default": true, 
-                            "value": true, 
                             "hidden": false, 
                             "optional": false, 
+                            "value": true, 
                             "description": "use raster colorize color"
                         }, 
                         "class": "processing.core.parameters.ParameterBoolean"
@@ -377,8 +377,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 225.0, 
-                            "x": 328.0
+                            "y": 205.0, 
+                            "x": 327.0
                         }, 
                         "class": "point"
                     }, 
@@ -405,7 +405,7 @@
                     }, 
                     "active": true, 
                     "consoleName": "script:colorstringfromcolorizecolor", 
-                    "description": "color_string_from_colorize_color"
+                    "description": "color string from colorize color"
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.Algorithm"
             }, 
@@ -417,8 +417,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 372.0, 
-                            "x": 327.0
+                            "y": 374.0, 
+                            "x": 332.0
                         }, 
                         "class": "point"
                     }, 
