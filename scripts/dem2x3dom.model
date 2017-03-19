@@ -353,8 +353,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 257.0, 
-                            "x": 325.0
+                            "y": 261.0, 
+                            "x": 326.0
                         }, 
                         "class": "point"
                     }, 
@@ -408,7 +408,7 @@
                         "appearance": {
                             "values": {
                                 "alg": "SCRIPTGENERATEX3DCOLORAPPEARANCE_1", 
-                                "output": "Out"
+                                "output": "output_string"
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
                         }

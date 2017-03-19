@@ -233,7 +233,7 @@
                         "appearance": {
                             "values": {
                                 "alg": "SCRIPTGENERATEX3DCOLORAPPEARANCE_1", 
-                                "output": "Out"
+                                "output": "output_string"
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
                         }
