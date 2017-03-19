@@ -6,9 +6,12 @@ append x3d node to existing xml x3d scene
 ##X3D_html=file
 ##X3D_node=file
 ##output_X3D_html=output file
+##open_in_browser=boolean False
 
 import xml.etree.ElementTree as ET
 #import xml.dom.minidom as DOM
+import webbrowser
+from PyQt4.QtCore import QUrl
 
 doc = ET.parse(X3D_html)
 #doc=DOM.parse(X3D_scene)
@@ -27,3 +30,6 @@ scene.append(ET.parse(X3D_node).getroot())
 doc.write(output_X3D_html, 'utf-8', False, None, 'xml')
 #f=open(output_X3D_scene, 'w')
 #doc.writexml(f, '', '  ', '', encoding='utf-8') # turns out to be not so pretty
+if open_in_browser:
+    url = QUrl.fromLocalFile(output_X3D_html).toString()
+    webbrowser.open_new(url)
