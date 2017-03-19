@@ -5,7 +5,7 @@ QGIS Processing scripts, models and plugins for X3D export
 Steps to try out:
 1. get a DEM (for example from ned.gov)
 2. load into qgis
-3. crop and downsample to ca. 500x500 pixels
+3. crop and downsample to ca. 500x500 pixels, warp to longlat WGS84
 4. get all processing scripts and models from here
 5. load into qgis
 6. run raster2x3dom model
