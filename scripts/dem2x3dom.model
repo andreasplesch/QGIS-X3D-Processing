@@ -255,8 +255,8 @@
                         "open_in_browser": false, 
                         "X3D_node": {
                             "values": {
-                                "alg": "SCRIPTGEOLOCATEDVIEWPOINTFROMRASTER_1", 
-                                "output": "output_viewpoint_file"
+                                "alg": "SCRIPTGEOVIEWPOINTFROMRASTER_1", 
+                                "output": "output_geoviewpoint_file"
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
                         }, 
@@ -271,6 +271,36 @@
                     "active": true, 
                     "consoleName": "script:insertx3dnodeintohtml", 
                     "description": "insert X3D node into html"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTGEOVIEWPOINTFROMRASTER_1": {
+                "values": {
+                    "name": "SCRIPTGEOVIEWPOINTFROMRASTER_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 170.0, 
+                            "x": 552.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_raster": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "mode": 0, 
+                        "centerOfRotation_height": 0.0
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:geoviewpointfromraster", 
+                    "description": "GeoViewpoint from raster"
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.Algorithm"
             }, 
@@ -386,36 +416,6 @@
                     "active": true, 
                     "consoleName": "script:x3dshapenodefromappearanceandgeometry", 
                     "description": "X3D Shape node from Appearance and  Geometry"
-                }, 
-                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
-            }, 
-            "SCRIPTGEOLOCATEDVIEWPOINTFROMRASTER_1": {
-                "values": {
-                    "name": "SCRIPTGEOLOCATEDVIEWPOINTFROMRASTER_1", 
-                    "paramsFolded": true, 
-                    "outputs": {}, 
-                    "outputsFolded": true, 
-                    "pos": {
-                        "values": {
-                            "y": 171.0, 
-                            "x": 556.0
-                        }, 
-                        "class": "point"
-                    }, 
-                    "dependencies": [], 
-                    "params": {
-                        "input_raster": {
-                            "values": {
-                                "name": "dem"
-                            }, 
-                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
-                        }, 
-                        "mode": 0, 
-                        "centerOfRotation_height": 0.0
-                    }, 
-                    "active": true, 
-                    "consoleName": "script:geolocatedviewpointfromraster", 
-                    "description": "GeoLocated Viewpoint from raster"
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.Algorithm"
             }
