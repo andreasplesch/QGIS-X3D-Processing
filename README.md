@@ -35,7 +35,7 @@ https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/n35w
 
 large (takes a couple minutes to display):
 
-https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/x3dom2.html
+https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/n35w120ned_clip600x700.html
 
 ## Documentation bits
 
