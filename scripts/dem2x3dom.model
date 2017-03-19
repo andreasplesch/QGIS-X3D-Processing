@@ -5,8 +5,8 @@
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 40.0, 
-                            "x": 327.0
+                            "y": 41.0, 
+                            "x": 550.0
                         }, 
                         "class": "point"
                     }, 
@@ -29,8 +29,8 @@
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 39.0, 
-                            "x": 107.0
+                            "y": 37.0, 
+                            "x": 104.0
                         }, 
                         "class": "point"
                     }, 
@@ -56,8 +56,8 @@
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 259.0, 
-                            "x": 110.0
+                            "y": 371.0, 
+                            "x": 105.0
                         }, 
                         "class": "point"
                     }, 
@@ -66,9 +66,9 @@
                             "isAdvanced": false, 
                             "name": "shininess", 
                             "min": 0.0, 
-                            "default": 0.8, 
+                            "default": 0.6, 
                             "max": 1.0, 
-                            "value": 0.8, 
+                            "value": 0.6, 
                             "hidden": false, 
                             "isInteger": false, 
                             "optional": false, 
@@ -79,12 +79,36 @@
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
             }, 
+            "userastercolorizecolor": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 181.0, 
+                            "x": 105.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "userastercolorizecolor", 
+                            "default": true, 
+                            "value": true, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "use raster colorize color"
+                        }, 
+                        "class": "processing.core.parameters.ParameterBoolean"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
             "openinbrowser": {
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 334.0, 
-                            "x": 542.0
+                            "y": 330.0, 
+                            "x": 551.0
                         }, 
                         "class": "point"
                     }, 
@@ -107,8 +131,8 @@
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 50.0, 
-                            "x": 550.0
+                            "y": 100.0, 
+                            "x": 104.0
                         }, 
                         "class": "point"
                     }, 
@@ -122,33 +146,33 @@
                             "exported": null, 
                             "hidden": false, 
                             "optional": false, 
-                            "description": "dem"
+                            "description": "dem_raster_layer"
                         }, 
                         "class": "processing.core.parameters.ParameterRaster"
                     }
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
             }, 
-            "diffusecolorrgb": {
+            "alternativecolor": {
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 176.0, 
-                            "x": 110.0
+                            "y": 250.0, 
+                            "x": 104.0
                         }, 
                         "class": "point"
                     }, 
                     "param": {
                         "values": {
                             "isAdvanced": false, 
-                            "name": "diffusecolorrgb", 
-                            "default": "0.8 0.8 0.8", 
-                            "value": "0.8 0.8 0.8", 
+                            "name": "alternativecolor", 
+                            "default": "0.8 0.8 0.7", 
+                            "value": "0.8 0.8 0.7", 
                             "multiline": false, 
                             "evaluateExpressions": false, 
                             "hidden": false, 
                             "optional": false, 
-                            "description": "diffuse color R G B"
+                            "description": "alternative color"
                         }, 
                         "class": "processing.core.parameters.ParameterString"
                     }
@@ -188,11 +212,11 @@
                     "outputs": {
                         "output_X3D_html": {
                             "values": {
-                                "description": "output_x3dom_page.html", 
+                                "description": "output x3dom html page", 
                                 "pos": {
                                     "values": {
-                                        "y": 447.0, 
-                                        "x": 770.0
+                                        "y": 441.0, 
+                                        "x": 784.0
                                     }, 
                                     "class": "point"
                                 }
@@ -312,8 +336,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 118.0, 
-                            "x": 333.0
+                            "y": 104.0, 
+                            "x": 552.0
                         }, 
                         "class": "point"
                     }, 
@@ -345,6 +369,46 @@
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.Algorithm"
             }, 
+            "SCRIPTCOLORSTRINGFROMCOLORIZECOLOR_1": {
+                "values": {
+                    "name": "SCRIPTCOLORSTRINGFROMCOLORIZECOLOR_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 225.0, 
+                            "x": 328.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_raster": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "extract_colorize_color": {
+                            "values": {
+                                "name": "userastercolorizecolor"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "custom_color": {
+                            "values": {
+                                "name": "alternativecolor"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:colorstringfromcolorizecolor", 
+                    "description": "color_string_from_colorize_color"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
             "SCRIPTGENERATEX3DCOLORAPPEARANCE_1": {
                 "values": {
                     "name": "SCRIPTGENERATEX3DCOLORAPPEARANCE_1", 
@@ -353,8 +417,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 261.0, 
-                            "x": 326.0
+                            "y": 372.0, 
+                            "x": 327.0
                         }, 
                         "class": "point"
                     }, 
@@ -363,9 +427,10 @@
                         "emissiveColor": "0 0 0", 
                         "diffuseColor": {
                             "values": {
-                                "name": "diffusecolorrgb"
+                                "alg": "SCRIPTCOLORSTRINGFROMCOLORIZECOLOR_1", 
+                                "output": "output_color_string"
                             }, 
-                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
                         }, 
                         "shininess": {
                             "values": {
@@ -391,7 +456,7 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 260.0, 
+                            "y": 250.0, 
                             "x": 550.0
                         }, 
                         "class": "point"
