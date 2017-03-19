@@ -23,8 +23,8 @@ Steps to try out:
  -- save as jpg script (probably not useful)
  - color contour option: use 1d texture and generated UVs where U is normalized elevation
  - extrude polygons from vector layer by height attribute or constant
- - need to be in projected crs, then just use first point as reference, and first point geographic coordinates for geolocation
- 
+ -- need to be in projected crs, then just use first point as reference, and first point geographic coordinates for geolocation
+ - GeoLOD option: use gdal tile functionality for both DEM and imagery
  ...
 
 ## Examples
