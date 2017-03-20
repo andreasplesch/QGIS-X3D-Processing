@@ -10,7 +10,7 @@
 
 majorR = 6378137
 f = 298.257223563
-minorR = majorR * ( 1 - 1/f ) + centerOfRotation_height
+minorR = majorR * ( 1 - 1/f )
 LAT2METER = 2 * 3.14 * minorR / 360
 
 #r=processing.getObject(input_raster)
@@ -43,7 +43,7 @@ out = "<GeoViewpoint DEF='%s'\n" % DEF
 out+= "  description='%s'\n" % description
 out+= "  position='%s %s %s'\n" % (centerPoint.y(), centerPoint.x(), height)
 out+= "  orientation='%s'\n" % orientation
-out+= "  centerOfRotation='%s %s %s'" % (centerPoint.y(), centerPoint.x(), centerOfRotation_height) #cor is geocentric
+out+= "  centerOfRotation='%s %s %s'" % (centerPoint.y(), centerPoint.x(), centerOfRotation_height) # cor is geocentric, not needed
 #out+= ' geoSystem=\'"GD" "WE"\'\n ' # default
 out+= ">\n </GeoViewpoint>\n"
 
