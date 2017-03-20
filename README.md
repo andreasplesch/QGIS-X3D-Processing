@@ -37,6 +37,10 @@ large (takes a couple minutes to display):
 
 https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/n35w120ned_clip600x700.html
 
+medium (topo30 resampled to 600x300, 100x v.e.)
+
+https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/topo30_600x300.html
+
 ## Documentation bits
 
 ![image](https://cloud.githubusercontent.com/assets/6171115/24084642/29768dc8-0cc4-11e7-94d9-34c2ba85075a.png)
