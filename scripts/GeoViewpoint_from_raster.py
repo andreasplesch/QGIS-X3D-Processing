@@ -1,12 +1,42 @@
+'''
+constructs a X3D GeoViewpoint which shows a raster in top down map view
+(c) 2017 Andreas Plesch
+'''
 ##X3D=group
 ##GeoViewpoint from raster=name
 ##input_raster=raster
-##mode=selection map; north
+##mode=selection map;north;west;south;east
 ##centerOfRotation_height=number 0
 ##output_geoviewpoint_file=output file
 ##output_geoviewpoint_string=output string
 
-#import math
+import math
+
+fov = 45 # default fov
+r675 = math.radians(90-fov/2)
+#r225 = math.radians(fov/2)
+#c225 = math.cos(r225)
+#s225 = math.sin(r225)
+t675 = math.tan(r675)/2
+
+modeMap = {0:'map', 1:'north', 2:'west', 3:'south', 4:'east'}
+m=modeMap[mode]
+
+mode2orientation = { #http://www.andre-gaschler.com/rotationconverter/
+    'map':'1 0 0 -1.57', #down
+    'north':'1 0 0 %s' % -r675, #to north
+    'east':'-0.4859482 -0.7266942 -0.4855614 1.8839996', #(c225, s225),
+    'south':'0 -0.8314697 -0.5555701 3.1415', # % (3.1415),
+    'west':'-0.4859482 0.7266942 0.4855614 1.8839996' #% (1, 0) #(c225, -s225)
+}
+
+mode2description = {
+    'map':'map view', 
+    'north':'view to north', #to north
+    'east':'view to east',
+    'south':'view to south',
+    'west':'view to west'
+}
 
 majorR = 6378137
 f = 298.257223563
@@ -22,7 +52,9 @@ o = processing.getObject(outlineWE['OUTPUT'])
 
 e = o.extent()
 centerPoint = e.center()
-height = e.height() * LAT2METER
+mheight = e.height() * LAT2METER * t675
+mwidth = e.width() * LAT2METER * math.cos(math.radians(centerPoint.y())) * t675
+height = max(mheight, mwidth)
 
 '''
 cRad = (math.radians(centerPoint.x()), math.radians(centerPoint.y()))
@@ -33,17 +65,28 @@ cor = (
     minorR * math.sin(cRad[1])
 )
 '''
-orientation = '1 0 0 -1.57' #down
 
-description = 'map view'
+mode2position = {
+    'map': (centerPoint.y(), centerPoint.x(), height),
+    'north':(e.yMinimum(), centerPoint.x(), mheight),
+    'east':(centerPoint.y(), e.xMinimum(), mwidth),
+    'south':(e.yMaximum(), centerPoint.x(), mheight),
+    'west':(centerPoint.y(), e.xMaximum(), mwidth)
+}
 
-DEF = 'mapVP'
+position = mode2position[m]
+
+orientation = mode2orientation[m]
+
+description = mode2description[m]
+
+DEF = description.replace(' ', '_')
 
 out = "<GeoViewpoint DEF='%s'\n" % DEF
 out+= "  description='%s'\n" % description
-out+= "  position='%s %s %s'\n" % (centerPoint.y(), centerPoint.x(), height)
+out+= "  position='%s %s %s'\n" % position
 out+= "  orientation='%s'\n" % orientation
-out+= "  centerOfRotation='%s %s %s'" % (centerPoint.y(), centerPoint.x(), centerOfRotation_height) # cor is geocentric, not needed
+out+= "  centerOfRotation='%s %s %s'" % (centerPoint.y(), centerPoint.x(), centerOfRotation_height) #cor is geocentric
 #out+= ' geoSystem=\'"GD" "WE"\'\n ' # default
 out+= ">\n </GeoViewpoint>\n"
 
