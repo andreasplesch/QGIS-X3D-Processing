@@ -6,7 +6,7 @@ Steps to try out:
 1. get a DEM (for example from ned.gov, or https://github.com/andreasplesch/QGIS-X3D-Processing/raw/master/examples/output/n35w120utmWGS84samll.tif)
 2. load into qgis
 3. crop and downsample to ca. 500x500 pixels, warp to longlat WGS84
-4. get all processing scripts and models from here
+4. get all processing scripts and models from here: https://github.com/andreasplesch/QGIS-X3D-Processing/archive/master.zip
 5. load into qgis
 6. run raster2x3dom model
 7. open resulting html file
