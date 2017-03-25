@@ -44,6 +44,8 @@ https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/topo
 
 ## Documentation bits
 
+![image](https://cloud.githubusercontent.com/assets/6171115/24326416/1e4c637c-1184-11e7-8f70-bb38487f2bc0.png)
+
 ![image](https://cloud.githubusercontent.com/assets/6171115/24084642/29768dc8-0cc4-11e7-94d9-34c2ba85075a.png)
 
 ![image](https://cloud.githubusercontent.com/assets/6171115/24065920/feda64fc-0b44-11e7-9f4b-8bbc30e31c88.png)
