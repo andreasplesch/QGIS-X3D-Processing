@@ -32,7 +32,7 @@ Steps to try out:
 
 small
 
-https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/n35w120ned_200x200.html
+https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/n35w120nedWGS84_200x200.html
 
 large (takes a couple minutes to display):
 
