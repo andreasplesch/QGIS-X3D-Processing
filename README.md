@@ -36,7 +36,7 @@ https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/n35w
 
 large (takes a couple minutes to display):
 
-https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/n35w120ned_clip600x700.html
+https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/n35w120_clipped_600x700.html
 
 medium (topo30 resampled to 600x300, 100x v.e.)
 
