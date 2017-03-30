@@ -42,6 +42,11 @@ medium (topo30 resampled to 600x300, 100x v.e.)
 
 https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/topo30_600x300.html
 
+using cobweb with pure X3D
+
+![image](https://cloud.githubusercontent.com/assets/6171115/24529414/770ea4f4-1579-11e7-8221-1b4d24d18a6f.png)
+
+
 ## Documentation bits
 
 ![image](https://cloud.githubusercontent.com/assets/6171115/24326416/1e4c637c-1184-11e7-8f70-bb38487f2bc0.png)
