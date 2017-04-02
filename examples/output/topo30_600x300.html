@@ -54,7 +54,8 @@
         var hud = document.querySelector('#hud');
         var gc = x3dom.fields.MFVec3f.parse(event.hitPnt.toString());
         var gd = x3dom.nodeTypes.GeoCoordinate.prototype.GCtoGD(['GC','WE'], gc)[0];
-        hud.textContent = "long.: "+gd.x.toFixed(3)+" lat.: "+gd.y.toFixed(3)+" height: "+gd.z.toFixed(1);
+        
+        hud.textContent = "long.: "+gd.x.toFixed(3)+"&deg; lat.: "+gd.y.toFixed(3)+"&deg; height: "+gd.z.toFixed(1)+"m";
     }
   </script>
 </body>
