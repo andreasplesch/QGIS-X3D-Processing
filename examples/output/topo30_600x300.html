@@ -54,8 +54,9 @@
         var hud = document.querySelector('#hud');
         var gc = x3dom.fields.MFVec3f.parse(event.hitPnt.toString());
         var gd = x3dom.nodeTypes.GeoCoordinate.prototype.GCtoGD(['GC','WE'], gc)[0];
-        
-        hud.textContent = "long.: "+gd.x.toFixed(3)+"° lat.: "+gd.y.toFixed(3)+"° height: "+gd.z.toFixed(1)+"m";
+        var veNode = event.hitObject.querySelector('[yscale]'); // any child object with yscale attribute
+        var ve = veNode ? 1.0 * veNode.yscale : 1.0 ;
+        hud.textContent = "long.: "+gd.x.toFixed(3)+"° lat.: "+gd.y.toFixed(3)+"° height: "+(gd.z/ve).toFixed(1)+"m";
     }
   </script>
 </body>
