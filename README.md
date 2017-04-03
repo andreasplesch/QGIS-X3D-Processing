@@ -27,6 +27,7 @@ Steps to try out:
    - need to be in projected crs, then just use first point as reference, and first point geographic coordinates for geolocation
  - GeoLOD option: use gdal tile functionality for both DEM and imagery
  - add accurate picking: done
+ - passive picking: add crosshair at center and report values from there. For mobile.
  ...
 
 ## Examples
