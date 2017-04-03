@@ -7,6 +7,7 @@ append x3d node to existing x3d scene in a html file
 ##insert X3D node into html=name
 ##X3D_html=file
 ##X3D_node=file
+##output_html_encoding=boolean False
 ##output_X3D_html=output file
 ##open_in_browser=boolean False
 
@@ -29,8 +30,9 @@ if scene is None:
 scene.append(ET.parse(X3D_node).getroot())
 #x3dNodeElement = DOM.parse(X3D_node).documentElement
 #scene.appendChild(x3dNodeElement)
-
-doc.write(output_X3D_html, 'utf-8', False, None, 'xml')
+encoding = 'xml'
+if open_in_browser or output_html_encoding: encoding = 'html'
+doc.write(output_X3D_html, 'utf-8', False, None, encoding)
 #f=open(output_X3D_scene, 'w')
 #doc.writexml(f, '', '  ', '', encoding='utf-8') # turns out to be not so pretty
 if open_in_browser:
