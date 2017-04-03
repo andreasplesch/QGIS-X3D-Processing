@@ -19,12 +19,12 @@ Steps to try out:
  - geoOrigin option: DEF/USE, needs to be first, include optionally with empty scene and update when appending ?
  - use wiki for example processing workflow
  - add draping of other raster as texture: think about how to modularize
- -- warp to crs of other raster script
- -- crop/enlarge to extent of other raster script
- -- save as jpg script (probably not useful): use rasterlayer.previewAsImage(full size), then Qimage.save
+   - warp to crs of other raster script
+   - crop/enlarge to extent of other raster script
+   - save as jpg script (probably not useful): use rasterlayer.previewAsImage(full size), then Qimage.save
  - color contour option: use 1d texture and generated UVs where U is normalized elevation
  - extrude polygons from vector layer by height attribute or constant
- -- need to be in projected crs, then just use first point as reference, and first point geographic coordinates for geolocation
+   - need to be in projected crs, then just use first point as reference, and first point geographic coordinates for geolocation
  - GeoLOD option: use gdal tile functionality for both DEM and imagery
  - add accurate picking: done
  ...
