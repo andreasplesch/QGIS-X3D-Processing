@@ -6,6 +6,7 @@ Steps to try out:
 1. get a DEM (for example from ned.gov, or https://github.com/andreasplesch/QGIS-X3D-Processing/raw/master/examples/output/n35w120utmWGS84samll.tif)
 2. load into qgis
 3. crop and downsample to ca. 500x500 pixels, warp to longlat WGS84
+3b. set additional no data value in Properties - Transparency (to 0 in above DEM)
 4. get all processing scripts and models from here: https://github.com/andreasplesch/QGIS-X3D-Processing/archive/master.zip
 5. load into qgis
 6. run raster2x3dom model
@@ -34,7 +35,7 @@ Steps to try out:
 
 small
 
-https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/n35w120nedWGS84_200x200.html
+https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/n35w120ned_UTM11N_200x200.html
 
 large (takes a couple minutes to display):
 
