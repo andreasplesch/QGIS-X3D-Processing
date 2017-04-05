@@ -24,15 +24,18 @@ html = doc.getroot() # should be html element
 scene = html.find('.//Scene') # first scene somewhere below
 if scene is None:
     scene = html.find('.//scene')
-if scene is None:
-    raise GeoAlgorithmExecutionException('Could not find a <scene> element in %s' % X3D_html)
+    if scene is None:
+        raise GeoAlgorithmExecutionException('Could not find a <scene> element in %s' % X3D_html)
 #scene = doc.getElementsByTagName('Scene')[0]
 scene.append(ET.parse(X3D_node).getroot())
 #x3dNodeElement = DOM.parse(X3D_node).documentElement
 #scene.appendChild(x3dNodeElement)
+f = open(output_X3D_html, 'w')
 encoding = 'xml'
-if open_in_browser or output_html_encoding: encoding = 'html'
-doc.write(output_X3D_html, 'utf-8', False, None, encoding)
+if open_in_browser or output_html_encoding:
+    encoding = 'html'
+    f.write('<!DOCTYPE html>\n')
+doc.write(f, 'utf-8', False, None, encoding)
 #f=open(output_X3D_scene, 'w')
 #doc.writexml(f, '', '  ', '', encoding='utf-8') # turns out to be not so pretty
 if open_in_browser:
