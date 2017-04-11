@@ -10,10 +10,10 @@ constructs directional light from azimuth and altitude
 ##multidirectional=boolean False
 ##output_X3D_light=output string
 
-out ='<Transform rotation="0 1 0 %s">\n’ % azimuth
-out+='    <Transform rotation="1 0 0 %s">\n’ % altitude
+out ='<Transform rotation="0 1 0 %s">\n’
+out+='    <Transform rotation="1 0 0 %s">\n’
 out+='        <DirectionalLight />\n'
 out+='    </Transform>\n'
 out+='</Transform>\n'
 
-output_X3D_light=out
+output_X3D_light=out % (azimuth, altitude)
