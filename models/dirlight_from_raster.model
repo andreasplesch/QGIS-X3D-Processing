@@ -1,0 +1,251 @@
+{
+    "values": {
+        "inputs": {
+            "dem": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 84.0, 
+                            "x": 121.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "dem", 
+                            "showSublayersDialog": true, 
+                            "default": null, 
+                            "value": null, 
+                            "exported": null, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "dem"
+                        }, 
+                        "class": "processing.core.parameters.ParameterRaster"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "onlyheadlight": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 204.0, 
+                            "x": 629.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "onlyheadlight", 
+                            "default": false, 
+                            "value": false, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "only headlight"
+                        }, 
+                        "class": "processing.core.parameters.ParameterBoolean"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }
+        }, 
+        "helpContent": {}, 
+        "group": "X3D", 
+        "name": "dirLight from raster", 
+        "algs": {
+            "SCRIPTWRITESTRING_1": {
+                "values": {
+                    "name": "SCRIPTWRITESTRING_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "output_file": {
+                            "values": {
+                                "description": "dirLightFile", 
+                                "pos": {
+                                    "values": {
+                                        "y": 463.0, 
+                                        "x": 383.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 394.0, 
+                            "x": 381.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_string": {
+                            "values": {
+                                "alg": "SCRIPTINSERTX3DNODEASCHILD_1", 
+                                "output": "output_node_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:writestring", 
+                    "description": "write string"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTLIGHTFROMHILLSHADE_1": {
+                "values": {
+                    "name": "SCRIPTLIGHTFROMHILLSHADE_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 237.0, 
+                            "x": 380.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "altitude": {
+                            "values": {
+                                "alg": "SCRIPTHILLSHADEPARAMETERS_1", 
+                                "output": "out_altitude"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "only_headlight": {
+                            "values": {
+                                "name": "onlyheadlight"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "multidirectional": {
+                            "values": {
+                                "alg": "SCRIPTHILLSHADEPARAMETERS_1", 
+                                "output": "out_multidirectional"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "azimuth": {
+                            "values": {
+                                "alg": "SCRIPTHILLSHADEPARAMETERS_1", 
+                                "output": "out_azimuth"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:lightfromhillshade", 
+                    "description": "light from hillshade"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTHILLSHADEPARAMETERS_1": {
+                "values": {
+                    "name": "SCRIPTHILLSHADEPARAMETERS_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 147.0, 
+                            "x": 382.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_raster": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "use_custom_parameters": false, 
+                        "custom_azimuth": 315.0, 
+                        "custom_altitude": 45.0, 
+                        "custom_multidirectional": false, 
+                        "custom_zFactor": 1.0
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:hillshadeparameters", 
+                    "description": "hillshade parameters"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTGEOLOCATIONFROMRASTERCENTER_1": {
+                "values": {
+                    "name": "SCRIPTGEOLOCATIONFROMRASTERCENTER_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 262.0, 
+                            "x": 129.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_raster": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:geolocationfromrastercenter", 
+                    "description": "GeoLocation from raster center"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTINSERTX3DNODEASCHILD_1": {
+                "values": {
+                    "name": "SCRIPTINSERTX3DNODEASCHILD_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 319.0, 
+                            "x": 383.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "X3D_parent": {
+                            "values": {
+                                "alg": "SCRIPTGEOLOCATIONFROMRASTERCENTER_1", 
+                                "output": "output_GeoLocation_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "X3D_node": {
+                            "values": {
+                                "alg": "SCRIPTLIGHTFROMHILLSHADE_1", 
+                                "output": "output_X3D_light"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:insertx3dnodeaschild", 
+                    "description": "insert X3D node as child"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }
+        }
+    }, 
+    "class": "processing.modeler.ModelerAlgorithm.ModelerAlgorithm"
+}

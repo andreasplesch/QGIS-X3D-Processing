@@ -1,0 +1,457 @@
+{
+    "values": {
+        "inputs": {
+            "dem": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 255.0, 
+                            "x": 136.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "dem", 
+                            "showSublayersDialog": true, 
+                            "default": null, 
+                            "value": null, 
+                            "exported": null, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "DEM"
+                        }, 
+                        "class": "processing.core.parameters.ParameterRaster"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "centerofrotationheight": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 344.0, 
+                            "x": 136.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "centerofrotationheight", 
+                            "min": null, 
+                            "default": 0, 
+                            "max": null, 
+                            "value": 0, 
+                            "hidden": false, 
+                            "isInteger": true, 
+                            "optional": true, 
+                            "description": "center of rotation height"
+                        }, 
+                        "class": "processing.core.parameters.ParameterNumber"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }
+        }, 
+        "helpContent": {}, 
+        "group": "X3D", 
+        "name": "GeoViewpointsFromRaster", 
+        "algs": {
+            "SCRIPTGEOVIEWPOINTFROMRASTER_5": {
+                "values": {
+                    "name": "SCRIPTGEOVIEWPOINTFROMRASTER_5", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 352.0, 
+                            "x": 390.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_raster": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "mode": 4, 
+                        "centerOfRotation_height": {
+                            "values": {
+                                "name": "centerofrotationheight"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:geoviewpointfromraster", 
+                    "description": "East Viewpoint from raster"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTGEOVIEWPOINTFROMRASTER_4": {
+                "values": {
+                    "name": "SCRIPTGEOVIEWPOINTFROMRASTER_4", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 276.0, 
+                            "x": 389.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_raster": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "mode": 3, 
+                        "centerOfRotation_height": {
+                            "values": {
+                                "name": "centerofrotationheight"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:geoviewpointfromraster", 
+                    "description": "South Viewpoint from raster"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTGEOVIEWPOINTFROMRASTER_3": {
+                "values": {
+                    "name": "SCRIPTGEOVIEWPOINTFROMRASTER_3", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 201.0, 
+                            "x": 390.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_raster": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "mode": 2, 
+                        "centerOfRotation_height": {
+                            "values": {
+                                "name": "centerofrotationheight"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:geoviewpointfromraster", 
+                    "description": "West Viewpoint from raster"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTGEOVIEWPOINTFROMRASTER_2": {
+                "values": {
+                    "name": "SCRIPTGEOVIEWPOINTFROMRASTER_2", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 124.0, 
+                            "x": 391.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_raster": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "mode": 1, 
+                        "centerOfRotation_height": {
+                            "values": {
+                                "name": "centerofrotationheight"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:geoviewpointfromraster", 
+                    "description": "North Viewpoint from raster"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTGEOVIEWPOINTFROMRASTER_1": {
+                "values": {
+                    "name": "SCRIPTGEOVIEWPOINTFROMRASTER_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 48.0, 
+                            "x": 389.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_raster": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "mode": 0, 
+                        "centerOfRotation_height": {
+                            "values": {
+                                "name": "centerofrotationheight"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:geoviewpointfromraster", 
+                    "description": "Map Viewpoint from raster"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTWRITESTRING_1": {
+                "values": {
+                    "name": "SCRIPTWRITESTRING_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "output_file": {
+                            "values": {
+                                "description": "GroupedViewpoints.x3d", 
+                                "pos": {
+                                    "values": {
+                                        "y": 565.0, 
+                                        "x": 635.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 496.0, 
+                            "x": 632.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_string": {
+                            "values": {
+                                "alg": "SCRIPTINSERTX3DNODEASCHILD_5", 
+                                "output": "output_node_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:writestring", 
+                    "description": "write string"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTINSERTX3DNODEASCHILD_4": {
+                "values": {
+                    "name": "SCRIPTINSERTX3DNODEASCHILD_4", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 350.0, 
+                            "x": 625.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "X3D_parent": {
+                            "values": {
+                                "alg": "SCRIPTINSERTX3DNODEASCHILD_3", 
+                                "output": "output_node_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "X3D_node": {
+                            "values": {
+                                "alg": "SCRIPTGEOVIEWPOINTFROMRASTER_4", 
+                                "output": "output_geoviewpoint_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:insertx3dnodeaschild", 
+                    "description": "insert south node as child"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTINSERTX3DNODEASCHILD_5": {
+                "values": {
+                    "name": "SCRIPTINSERTX3DNODEASCHILD_5", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 423.0, 
+                            "x": 623.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "X3D_parent": {
+                            "values": {
+                                "alg": "SCRIPTINSERTX3DNODEASCHILD_4", 
+                                "output": "output_node_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "X3D_node": {
+                            "values": {
+                                "alg": "SCRIPTGEOVIEWPOINTFROMRASTER_5", 
+                                "output": "output_geoviewpoint_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:insertx3dnodeaschild", 
+                    "description": "insert east  node as child"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTINSERTX3DNODEASCHILD_2": {
+                "values": {
+                    "name": "SCRIPTINSERTX3DNODEASCHILD_2", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 201.0, 
+                            "x": 618.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "X3D_parent": {
+                            "values": {
+                                "alg": "SCRIPTINSERTX3DNODEASCHILD_1", 
+                                "output": "output_node_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "X3D_node": {
+                            "values": {
+                                "alg": "SCRIPTGEOVIEWPOINTFROMRASTER_2", 
+                                "output": "output_geoviewpoint_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:insertx3dnodeaschild", 
+                    "description": "insert north as child"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTINSERTX3DNODEASCHILD_3": {
+                "values": {
+                    "name": "SCRIPTINSERTX3DNODEASCHILD_3", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 275.0, 
+                            "x": 622.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "X3D_parent": {
+                            "values": {
+                                "alg": "SCRIPTINSERTX3DNODEASCHILD_2", 
+                                "output": "output_node_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "X3D_node": {
+                            "values": {
+                                "alg": "SCRIPTGEOVIEWPOINTFROMRASTER_3", 
+                                "output": "output_geoviewpoint_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:insertx3dnodeaschild", 
+                    "description": "insert west node as child"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTINSERTX3DNODEASCHILD_1": {
+                "values": {
+                    "name": "SCRIPTINSERTX3DNODEASCHILD_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 124.0, 
+                            "x": 615.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "X3D_parent": "<Group></Group>", 
+                        "X3D_node": {
+                            "values": {
+                                "alg": "SCRIPTGEOVIEWPOINTFROMRASTER_1", 
+                                "output": "output_geoviewpoint_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:insertx3dnodeaschild", 
+                    "description": "insert X3D node as child"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }
+        }
+    }, 
+    "class": "processing.modeler.ModelerAlgorithm.ModelerAlgorithm"
+}
