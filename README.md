@@ -29,17 +29,20 @@ Steps to try out:
  - GeoLOD option: use gdal tile functionality for both DEM and imagery
  - add accurate picking: done
  - passive picking: add crosshair at center and report values from there. For mobile.
+ - added directional lighting: default orientation is from hillshade style azimuth and altitude
+ - multidirectional option also supported
+ - added svg knob to web page to interactively control directional light if available
  ...
 
 ## Examples
 
 small
 
-https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/n35w120ned_UTM11N_200x200.html
+https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/n35w120nedWGS84_200x200dir.html
 
 large (takes a couple minutes to display):
 
-https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/grdn35w120_clipped_600x700.html
+https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/grdn35w120_clipped_600x700dir.html
 
 medium (topo30 resampled to 600x300, 100x v.e.)
 
