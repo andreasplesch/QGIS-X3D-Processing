@@ -54,6 +54,7 @@ using cobweb with pure X3D
 
 
 ## Documentation bits
+![image](https://cloud.githubusercontent.com/assets/6171115/25078858/1877f91a-2305-11e7-8c61-b976b2b8a25d.png)
 
 ![image](https://cloud.githubusercontent.com/assets/6171115/24326416/1e4c637c-1184-11e7-8f70-bb38487f2bc0.png)
 
