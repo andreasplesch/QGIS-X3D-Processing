@@ -32,29 +32,87 @@ f.write('''<!DOCTYPE html>
             /* text-shadow: 3px 3px 2px black; */
             /* box-shadow: -5px 5px 4px 0px black; */
         }
+        #x3dElement {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        div#lightcontrol {
+            position:  fixed;
+            padding: 0px;
+            width: 100px;
+            height: 100px;
+            top: 10px;
+            left: 10px;
+            z-index: 9999;
+            //background: white;
+            //opacity: 0.5;
+        }
+        #lightdot:hover {
+            fill: red;
+        }
     </style>
   </head>
 
 <body style='width:100%; height:100%; border:0; margin:0; padding:0; background: linear-gradient(Grey 0%, White 100%);'>
-<div id='hud'> HUD area </div>
-    <x3d id='x3dElement' showStat='false' showLog='false' style='width:100%; height:100%; border:0' >
-        <scene DEF='scene'>
-        </scene>
-    </x3d>
+    <div id='hud'> HUD area </div>
+    <div id='lightcontrol'>
+        <svg version="1.1"
+            baseProfile="full"
+            width="100px" height="100px"
+            >
+            <circle cx="50%" cy="50%" r="50" stroke="black" stroke-width="2" fill="white" opacity="0.5" />
+            <circle cx="50%" cy="50%" r="2" stroke="black" stroke-width="2" fill="transparent" />
+            <text id='lighttext' x="50%" y="25%" font-size="12" text-anchor="middle" >0 90</text>
+            <circle id="lightdot" cx="50%" cy="50%" r="10" fill="black" onmousemove="updateLight(evt)"/>
+        </svg>
+    </div>
+    <X3D id='x3dElement' showStat='false' showLog='false'>
+        <Scene DEF='scene'>
+            <NavigationInfo headlight='false'></NavigationInfo>
+        </Scene>
+    </X3D>
     <script>
         document.onload = function () {
-            //listen to mouse
+            var lightRect = document.querySelector('#lightcontrol').getBoundingClientRect();
+            var lightText = document.querySelector('#lighttext');
+            var r2d = 180/Math.PI;
+            updateLight = function (e) {
+                if (e.buttons !== 1) {return}
+                var c = e.currentTarget;
+                c.setAttribute('cx', e.layerX);
+                c.setAttribute('cy', e.layerY);
+                var x = e.layerX - lightRect.width/2;
+                var y = e.layerY - lightRect.height/2;
+                var az = (Math.atan2(y, x) * r2d + 90) % 360;
+                var al = 90 - Math.hypot(x/lightRect.width, y/lightRect.height) * 180;
+                lightText.textContent=az.toFixed(0)+" "+al.toFixed(0);
+                var dirLight = scene.querySelector('DirectionalLight');
+                if (dirLight) {
+                    var alRot = dirLight.parentNode;
+                    alRot.setAttribute('rotation', '1 0 0 ' + (-al / r2d));
+                    var azRot = alRot.parentNode;
+                    azRot.setAttribute('rotation', '0 1 0 ' + (180 - az)/r2d);
+                }
+            }
+            // listen to mouse
             var scene = document.querySelector('scene');
-            scene.addEventListener('mousemove', updatePointing, false);//improved but slow picking with HD picker addon
-        }
-        function updatePointing (event) {
-            //update HUD
             var hud = document.querySelector('#hud');
-            var gc = x3dom.fields.MFVec3f.parse(event.hitPnt.toString());
-            var gd = x3dom.nodeTypes.GeoCoordinate.prototype.GCtoGD(['GC','WE'], gc)[0];
-            var veNode = event.hitObject.querySelector('[yscale]'); // any child object with yscale attribute
-            var ve = veNode ? 1.0 * veNode.yscale : 1.0 ;
-            hud.textContent = "long.: "+gd.x.toFixed(3)+"° lat.: "+gd.y.toFixed(3)+"° height: "+(gd.z/ve).toFixed(1)+"m";
+            scene.addEventListener('mousemove', updatePointing, false);//improved but slow picking with HD picker addon
+            // switch headlight on if no other lights
+            var lights = scene.querySelector('PointLight, DirectionalLight, SpotLight');
+            if (!lights) {
+                var runtime = document.querySelector('X3D').runtime ;
+                var navInfo = runtime.getActiveBindable('NavigationInfo') ;
+                navInfo.setAttribute('headlight', true);}
+            function updatePointing (event) {
+                //update HUD
+                var gc = x3dom.fields.MFVec3f.parse(event.hitPnt.toString());
+                var gd = x3dom.nodeTypes.GeoCoordinate.prototype.GCtoGD(['GC','WE'], gc)[0];
+                var veNode = event.hitObject.querySelector('[yscale]'); // any child object with yscale attribute
+                var ve = veNode ? 1.0 * veNode.yscale : 1.0 ;
+                hud.textContent = "long.: "+gd.x.toFixed(3)+"° lat.: "+gd.y.toFixed(3)+"° height: "+(gd.z/ve).toFixed(1)+"m";
+            }
         }
     </script>
 </body>

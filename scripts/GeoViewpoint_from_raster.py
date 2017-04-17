@@ -1,5 +1,5 @@
 '''
-constructs a X3D GeoViewpoint which shows a raster in top down map view
+constructs a X3D GeoViewpoint which shows a raster in top down map or other  views
 (c) 2017 Andreas Plesch
 '''
 ##X3D=group
