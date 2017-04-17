@@ -9,7 +9,7 @@ Steps to try out:
 4. set additional no data value in Properties - Transparency (to 0 in above DEM)
 5. get all processing scripts and models from here: https://github.com/andreasplesch/QGIS-X3D-Processing/archive/master.zip
 6. load into qgis
-7. run raster2x3dom model
+7. run raster2x3dom01 model
 8. open resulting html file
 
 ## TODO
