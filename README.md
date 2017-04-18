@@ -32,6 +32,7 @@ Steps to try out:
  - added directional lighting: default orientation is from hillshade style azimuth and altitude
  - multidirectional option also supported
  - added svg knob to web page to interactively control directional light if available
+ - separate out sub-model: shape from dem
  ...
 
 ## Examples
