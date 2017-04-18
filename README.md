@@ -36,6 +36,8 @@ Steps to try out:
 
 ## Examples
 
+use PdUp/PgDown to change perspective, drag circle to hill shade
+
 small
 
 https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/n35w120nedWGS84_200x200dir.html
