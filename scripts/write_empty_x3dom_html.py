@@ -39,32 +39,46 @@ f.write('''<!DOCTYPE html>
         }
         div#lightcontrol {
             position:  fixed;
-            padding: 0px;
-            width: 100px;
-            height: 100px;
-            top: 10px;
-            left: 10px;
+            padding: 5px;
+            width: 110px;
+            height: 110px;
+            top: 0px;
+            left: 0px;
             z-index: 9999;
-            //background: white;
-            //opacity: 0.5;
+            background: white;
+            opacity: 0.7;
+        }
+        #lightsvg {
+            width: 100%;
+            height: 100%;
+            
         }
         #lightdot:hover {
             fill: red;
+            cursor: move;
+        }
+        #lightcircle:hover {
+            cursor: crosshair;
+        }
+        .lighttext::selection {
+            background: none;
+        }
+        .lighttext {
+            font-size: 12px;
         }
     </style>
   </head>
 
 <body style='width:100%; height:100%; border:0; margin:0; padding:0; background: linear-gradient(Grey 0%, White 100%);'>
     <div id='hud'> HUD area </div>
-    <div id='lightcontrol'>
-        <svg version="1.1"
-            baseProfile="full"
-            width="100px" height="100px"
-            >
-            <circle cx="50%" cy="50%" r="50" stroke="black" stroke-width="2" fill="white" opacity="0.5" />
-            <circle cx="50%" cy="50%" r="2" stroke="black" stroke-width="2" fill="transparent" />
-            <text id='lighttext' x="50%" y="25%" font-size="12" text-anchor="middle" >0 90</text>
-            <circle id="lightdot" cx="50%" cy="50%" r="10" fill="black" onmousemove="updateLight(evt)"/>
+    <div id="lightcontrol">
+        <svg id="lightsvg" baseprofile="full" version="1.1" >
+            <circle id="lightcircle" cx="50%" cy="50%" fill="white" opacity="0.5" r="50" stroke="black" stroke-width="2"
+                    onmousemove="updateLight(evt)" onmousedown="updateLight(evt)"></circle>
+            <circle cx="50%" cy="50%" fill="transparent" r="2" stroke="black" stroke-width="2"></circle>
+            <text id="azimuthtext"  class="lighttext" text-anchor="start" x="0" y="12">000°</text>
+            <text id="altitudetext"  class="lighttext" text-anchor="end" x="100%" y="12">90°</text>
+            <circle cx="50%" cy="50%" fill="black" id="lightdot" r="10" onmousemove="updateLight(evt)"></circle>
         </svg>
     </div>
     <X3D id='x3dElement' showStat='false' showLog='false'>
@@ -74,37 +88,51 @@ f.write('''<!DOCTYPE html>
     </X3D>
     <script>
         document.onload = function () {
-            var lightRect = document.querySelector('#lightcontrol').getBoundingClientRect();
-            var lightText = document.querySelector('#lighttext');
+            var lightCircle = document.querySelector('#lightcircle');
+            var lightRect = lightCircle.getBoundingClientRect();
+            var lightCenterSVG = {"x":lightCircle.cx.baseVal.value, "y":lightCircle.cy.baseVal.value};
+            var lightCenter = {"x":(lightRect.right + lightRect.left) / 2, "y":(lightRect.top + lightRect.bottom) / 2};
+            var azimuthText = document.querySelector('#azimuthtext');
+            var altitudeText = document.querySelector('#altitudetext');
+            var lightDot =  document.querySelector('#lightdot');
             var r2d = 180/Math.PI;
+            
             updateLight = function (e) {
-                if (e.buttons !== 1) {return}
-                var c = e.currentTarget;
-                c.setAttribute('cx', e.layerX);
-                c.setAttribute('cy', e.layerY);
-                var x = e.layerX - lightRect.width/2;
-                var y = e.layerY - lightRect.height/2;
-                var az = (Math.atan2(y, x) * r2d + 90) % 360;
-                var al = 90 - Math.hypot(x/lightRect.width, y/lightRect.height) * 180;
-                lightText.textContent=az.toFixed(0)+" "+al.toFixed(0);
+                if (e.buttons !== 1) {return;}
+                e.stopPropagation();
+                var x = e.clientX - lightCenter.x;
+                var y = e.clientY - lightCenter.y;
+                var cx = lightCenterSVG.x + x ;
+                var cy = lightCenterSVG.y + y ;
+                lightDot.setAttribute('cx', cx);
+                lightDot.setAttribute('cy', cy);
+                var az = (Math.atan2(y, x) * r2d + 90 + 360) % 360;
+                x /= lightRect.width ;
+                y /= lightRect.height ;
+                var al = 90 - Math.sqrt(x*x + y*y) * 180; // no Math.hypot in IE
+                azimuthText.textContent=("00"+az.toFixed(0)).slice(-3)+"°";
+                altitudeText.textContent=("0"+al.toFixed(0)).slice(-2)+"°";
                 var dirLight = scene.querySelector('DirectionalLight');
                 if (dirLight) {
                     var alRot = dirLight.parentNode;
                     alRot.setAttribute('rotation', '1 0 0 ' + (-al / r2d));
                     var azRot = alRot.parentNode;
-                    azRot.setAttribute('rotation', '0 1 0 ' + (180 - az)/r2d);
+                    azRot.setAttribute('rotation', '0 1 0 ' + (180 - az) / r2d);
                 }
-            }
-            // listen to mouse
+            };
+            
+            // picker
             var scene = document.querySelector('scene');
             var hud = document.querySelector('#hud');
             scene.addEventListener('mousemove', updatePointing, false);//improved but slow picking with HD picker addon
+            
             // switch headlight on if no other lights
             var lights = scene.querySelector('PointLight, DirectionalLight, SpotLight');
             if (!lights) {
                 var runtime = document.querySelector('X3D').runtime ;
                 var navInfo = runtime.getActiveBindable('NavigationInfo') ;
                 navInfo.setAttribute('headlight', true);}
+            
             function updatePointing (event) {
                 //update HUD
                 var gc = x3dom.fields.MFVec3f.parse(event.hitPnt.toString());
@@ -112,7 +140,7 @@ f.write('''<!DOCTYPE html>
                 var veNode = event.hitObject.querySelector('[yscale]'); // any child object with yscale attribute
                 var ve = veNode ? 1.0 * veNode.yscale : 1.0 ;
                 hud.textContent = "long.: "+gd.x.toFixed(3)+"° lat.: "+gd.y.toFixed(3)+"° height: "+(gd.z/ve).toFixed(1)+"m";
-            }
+            };
         }
     </script>
 </body>
