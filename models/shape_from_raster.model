@@ -1,0 +1,336 @@
+{
+    "values": {
+        "inputs": {
+            "verticalexaggeration": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 83.0, 
+                            "x": 107.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "verticalexaggeration", 
+                            "min": -1000, 
+                            "default": 1, 
+                            "max": 1000, 
+                            "value": 1, 
+                            "hidden": false, 
+                            "isInteger": true, 
+                            "optional": false, 
+                            "description": "vertical exaggeration"
+                        }, 
+                        "class": "processing.core.parameters.ParameterNumber"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "usecolorizecolor": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 189.0, 
+                            "x": 106.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "usecolorizecolor", 
+                            "default": true, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "value": true, 
+                            "description": "use colorize color"
+                        }, 
+                        "class": "processing.core.parameters.ParameterBoolean"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "smooth": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 29.0, 
+                            "x": 106.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "smooth", 
+                            "default": true, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "value": true, 
+                            "description": "smooth"
+                        }, 
+                        "class": "processing.core.parameters.ParameterBoolean"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "shininess": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 321.0, 
+                            "x": 109.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "shininess", 
+                            "min": 0.0, 
+                            "default": 0.5, 
+                            "max": 1.0, 
+                            "value": 0.5, 
+                            "hidden": false, 
+                            "isInteger": false, 
+                            "optional": false, 
+                            "description": "shininess"
+                        }, 
+                        "class": "processing.core.parameters.ParameterNumber"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "rgbcolor": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 236.0, 
+                            "x": 108.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "rgbcolor", 
+                            "default": "0.8 0.8 0.7", 
+                            "value": "0.8 0.8 0.7", 
+                            "multiline": false, 
+                            "evaluateExpressions": false, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "RGB color"
+                        }, 
+                        "class": "processing.core.parameters.ParameterString"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "dem": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 138.0, 
+                            "x": 107.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "dem", 
+                            "showSublayersDialog": true, 
+                            "default": null, 
+                            "value": null, 
+                            "exported": null, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "DEM"
+                        }, 
+                        "class": "processing.core.parameters.ParameterRaster"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }
+        }, 
+        "helpContent": {}, 
+        "group": "X3D", 
+        "name": "X3D Shape from DEM", 
+        "algs": {
+            "SCRIPTDEMRASTERTOGEOELEVATIONGRID_1": {
+                "values": {
+                    "name": "SCRIPTDEMRASTERTOGEOELEVATIONGRID_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 119.0, 
+                            "x": 359.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "significant_digits_in_output": 5.0, 
+                        "smooth_rendering": {
+                            "values": {
+                                "name": "smooth"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "DEM_raster_layer": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "vertical_exaggeration": {
+                            "values": {
+                                "name": "verticalexaggeration"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:demrastertogeoelevationgrid", 
+                    "description": "DEM raster to GeoElevationgrid"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTX3DSHAPENODEFROMAPPEARANCEANDGEOMETRY_1": {
+                "values": {
+                    "name": "SCRIPTX3DSHAPENODEFROMAPPEARANCEANDGEOMETRY_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "output_X3D_Shape_file": {
+                            "values": {
+                                "description": "DEM Shape", 
+                                "pos": {
+                                    "values": {
+                                        "y": 325.0, 
+                                        "x": 635.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 204.0, 
+                            "x": 619.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "X3D_Geometry_file": {
+                            "values": {
+                                "alg": "SCRIPTDEMRASTERTOGEOELEVATIONGRID_1", 
+                                "output": "X3D_GeoElevationGrid_file"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "appearance": {
+                            "values": {
+                                "alg": "SCRIPTGENERATEX3DCOLORAPPEARANCE_1", 
+                                "output": "output_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:x3dshapenodefromappearanceandgeometry", 
+                    "description": "X3D Shape node from Appearance and  Geometry"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTCOLORSTRINGFROMCOLORIZECOLOR_1": {
+                "values": {
+                    "name": "SCRIPTCOLORSTRINGFROMCOLORIZECOLOR_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 206.0, 
+                            "x": 365.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_raster": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "extract_colorize_color": {
+                            "values": {
+                                "name": "usecolorizecolor"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "custom_color": {
+                            "values": {
+                                "name": "rgbcolor"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:colorstringfromcolorizecolor", 
+                    "description": "color string from colorize color"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTGENERATEX3DCOLORAPPEARANCE_1": {
+                "values": {
+                    "name": "SCRIPTGENERATEX3DCOLORAPPEARANCE_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 321.0, 
+                            "x": 367.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "emissiveColor": "0.01 0.01 0.01", 
+                        "diffuseColor": {
+                            "values": {
+                                "alg": "SCRIPTCOLORSTRINGFROMCOLORIZECOLOR_1", 
+                                "output": "output_color_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "shininess": {
+                            "values": {
+                                "name": "shininess"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "specularColor": "1 1 1", 
+                        "transparency": 0.0, 
+                        "ambientIntensity": 0.2
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:generatex3dcolorappearance", 
+                    "description": "generate X3D color Appearance"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }
+        }
+    }, 
+    "class": "processing.modeler.ModelerAlgorithm.ModelerAlgorithm"
+}
