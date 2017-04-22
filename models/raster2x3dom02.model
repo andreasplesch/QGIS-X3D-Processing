@@ -131,8 +131,8 @@
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 113.0, 
-                            "x": 113.0
+                            "y": 137.0, 
+                            "x": 114.0
                         }, 
                         "class": "point"
                     }, 
@@ -179,12 +179,39 @@
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
             }, 
+            "lightintensity": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 68.0, 
+                            "x": 111.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "lightintensity", 
+                            "min": 0.0, 
+                            "default": 0.7, 
+                            "max": 1.0, 
+                            "value": 0.7, 
+                            "hidden": false, 
+                            "isInteger": false, 
+                            "optional": false, 
+                            "description": "light intensity"
+                        }, 
+                        "class": "processing.core.parameters.ParameterNumber"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
             "onlyheadlight": {
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 37.0, 
-                            "x": 114.0
+                            "y": 24.0, 
+                            "x": 112.0
                         }, 
                         "class": "point"
                     }, 
@@ -449,6 +476,18 @@
                     }, 
                     "dependencies": [], 
                     "params": {
+                        "intensity": {
+                            "values": {
+                                "name": "lightintensity"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "ambeintintensity": {
+                            "values": {
+                                "name": "lightintensity"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
                         "dem": {
                             "values": {
                                 "name": "dem"

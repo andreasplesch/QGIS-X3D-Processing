@@ -1,6 +1,60 @@
 {
     "values": {
         "inputs": {
+            "intensity": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 162.0, 
+                            "x": 121.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "intensity", 
+                            "min": 0.0, 
+                            "default": 0.5, 
+                            "max": 1.0, 
+                            "value": 0.5, 
+                            "hidden": false, 
+                            "isInteger": false, 
+                            "optional": false, 
+                            "description": "intensity"
+                        }, 
+                        "class": "processing.core.parameters.ParameterNumber"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "ambeintintensity": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 222.0, 
+                            "x": 124.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "ambeintintensity", 
+                            "min": 0.0, 
+                            "default": 0.5, 
+                            "max": 1.0, 
+                            "value": 0.5, 
+                            "hidden": false, 
+                            "isInteger": false, 
+                            "optional": false, 
+                            "description": "ambient intensity"
+                        }, 
+                        "class": "processing.core.parameters.ParameterNumber"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
             "dem": {
                 "values": {
                     "pos": {
@@ -41,9 +95,9 @@
                             "isAdvanced": false, 
                             "name": "onlyheadlight", 
                             "default": false, 
-                            "value": false, 
                             "hidden": false, 
                             "optional": false, 
+                            "value": false, 
                             "description": "only headlight"
                         }, 
                         "class": "processing.core.parameters.ParameterBoolean"
@@ -66,8 +120,8 @@
                                 "description": "dirLightFile", 
                                 "pos": {
                                     "values": {
-                                        "y": 463.0, 
-                                        "x": 383.0
+                                        "y": 473.0, 
+                                        "x": 385.0
                                     }, 
                                     "class": "point"
                                 }
@@ -78,8 +132,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 394.0, 
-                            "x": 381.0
+                            "y": 411.0, 
+                            "x": 382.0
                         }, 
                         "class": "point"
                     }, 
@@ -107,13 +161,19 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 237.0, 
+                            "y": 236.0, 
                             "x": 380.0
                         }, 
                         "class": "point"
                     }, 
                     "dependencies": [], 
                     "params": {
+                        "only_headlight": {
+                            "values": {
+                                "name": "onlyheadlight"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
                         "altitude": {
                             "values": {
                                 "alg": "SCRIPTHILLSHADEPARAMETERS_1", 
@@ -121,9 +181,22 @@
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
                         }, 
-                        "only_headlight": {
+                        "intensity": {
                             "values": {
-                                "name": "onlyheadlight"
+                                "name": "intensity"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "azimuth": {
+                            "values": {
+                                "alg": "SCRIPTHILLSHADEPARAMETERS_1", 
+                                "output": "out_azimuth"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "ambientIntensity": {
+                            "values": {
+                                "name": "ambeintintensity"
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
                         }, 
@@ -131,13 +204,6 @@
                             "values": {
                                 "alg": "SCRIPTHILLSHADEPARAMETERS_1", 
                                 "output": "out_multidirectional"
-                            }, 
-                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
-                        }, 
-                        "azimuth": {
-                            "values": {
-                                "alg": "SCRIPTHILLSHADEPARAMETERS_1", 
-                                "output": "out_azimuth"
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
                         }
@@ -189,8 +255,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 262.0, 
-                            "x": 129.0
+                            "y": 299.0, 
+                            "x": 122.0
                         }, 
                         "class": "point"
                     }, 
@@ -217,8 +283,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 319.0, 
-                            "x": 383.0
+                            "y": 343.0, 
+                            "x": 377.0
                         }, 
                         "class": "point"
                     }, 
