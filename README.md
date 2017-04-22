@@ -29,10 +29,12 @@ Steps to try out:
  - GeoLOD option: use gdal tile functionality for both DEM and imagery
  - add accurate picking: done
  - passive picking: add crosshair at center and report values from there. For mobile.
- - added directional lighting: default orientation is from hillshade style azimuth and altitude
- - multidirectional option also supported
- - added svg knob to web page to interactively control directional light if available
- - separate out sub-model: shape from dem
+ - added directional lighting: default orientation is from hillshade style azimuth and altitude, done
+ - multidirectional option also supported, done
+ - added svg knob to web page to interactively control directional light if available, with touch support
+ - separate out sub-model: shape from dem, done
+ - expose light intensity (brightness) to model, done
+ - headlight toggle ('x' key'), done
  ...
 
 ## Examples
