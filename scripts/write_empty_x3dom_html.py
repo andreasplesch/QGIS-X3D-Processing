@@ -40,8 +40,8 @@ f.write('''<!DOCTYPE html>
         div#lightcontrol {
             position:  fixed;
             padding: 5px;
-            width: 110px;
-            height: 110px;
+            width: 210px;
+            height: 210px;
             top: 0px;
             left: 0px;
             z-index: 9999;
@@ -51,7 +51,6 @@ f.write('''<!DOCTYPE html>
         #lightsvg {
             width: 100%;
             height: 100%;
-            
         }
         #lightdot:hover {
             fill: red;
@@ -64,7 +63,7 @@ f.write('''<!DOCTYPE html>
             background: none;
         }
         .lighttext {
-            font-size: 12px;
+            font-size: 14px;
         }
     </style>
   </head>
@@ -73,12 +72,11 @@ f.write('''<!DOCTYPE html>
     <div id='hud'> HUD area </div>
     <div id="lightcontrol">
         <svg id="lightsvg" baseprofile="full" version="1.1" >
-            <circle id="lightcircle" cx="50%" cy="50%" fill="white" opacity="0.5" r="50" stroke="black" stroke-width="2"
-                    onmousemove="updateLight(evt)" onmousedown="updateLight(evt)"></circle>
+            <circle id="lightcircle" cx="50%" cy="50%" fill="white" opacity="0.5" r="100" stroke="black" stroke-width="2"></circle>
             <circle cx="50%" cy="50%" fill="transparent" r="2" stroke="black" stroke-width="2"></circle>
-            <text id="azimuthtext"  class="lighttext" text-anchor="start" x="0" y="12">000°</text>
+            <text id="azimuthtext"  class="lighttext" text-anchor="start" x="0" y="12">0°</text>
             <text id="altitudetext"  class="lighttext" text-anchor="end" x="100%" y="12">90°</text>
-            <circle cx="50%" cy="50%" fill="black" id="lightdot" r="10" onmousemove="updateLight(evt)"></circle>
+            <circle cx="50%" cy="50%" fill="black" id="lightdot" r="10" ></circle>
         </svg>
     </div>
     <X3D id='x3dElement' showStat='false' showLog='false'>
@@ -86,8 +84,11 @@ f.write('''<!DOCTYPE html>
             <NavigationInfo headlight='false'></NavigationInfo>
         </Scene>
     </X3D>
-    <script>
+    <script type="text/javascript">
+        //<![CDATA[
         document.onload = function () {
+          
+            // light control
             var lightCircle = document.querySelector('#lightcircle');
             var lightRect = lightCircle.getBoundingClientRect();
             var lightCenterSVG = {"x":lightCircle.cx.baseVal.value, "y":lightCircle.cy.baseVal.value};
@@ -95,13 +96,24 @@ f.write('''<!DOCTYPE html>
             var azimuthText = document.querySelector('#azimuthtext');
             var altitudeText = document.querySelector('#altitudetext');
             var lightDot =  document.querySelector('#lightdot');
-            var r2d = 180/Math.PI;
             
-            updateLight = function (e) {
-                if (e.buttons !== 1) {return;}
+            var r2d = 180/Math.PI;
+          
+            lightCircle.addEventListener('touchmove', updateLight, false);
+            lightDot.addEventListener('touchmove', updateLight, false);
+            lightCircle.addEventListener('mousemove', updateLight, false);
+            lightDot.addEventListener('mousemove', updateLight, false);
+            lightCircle.addEventListener('mousedown', updateLight, false);
+          
+            function updateLight (e) {
+                if ((e.buttons !== 1) && (e.type !== 'touchmove')) {return}
                 e.stopPropagation();
-                var x = e.clientX - lightCenter.x;
-                var y = e.clientY - lightCenter.y;
+                //var c = e.currentTarget;
+                var clientX = e.clientX || e.changedTouches[0].clientX;
+                var clientY = e.clientY || e.changedTouches[0].clientY;
+                
+                var x = clientX - lightCenter.x;
+                var y = clientY - lightCenter.y;
                 var cx = lightCenterSVG.x + x ;
                 var cy = lightCenterSVG.y + y ;
                 lightDot.setAttribute('cx', cx);
@@ -119,19 +131,29 @@ f.write('''<!DOCTYPE html>
                     var azRot = alRot.parentNode;
                     azRot.setAttribute('rotation', '0 1 0 ' + (180 - az) / r2d);
                 }
-            };
-            
-            // picker
-            var scene = document.querySelector('scene');
+            }
+            // picking, lights
+            var x3dElement = document.querySelector('X3D');
+            var scene = x3dElement.querySelector('scene');
             var hud = document.querySelector('#hud');
-            scene.addEventListener('mousemove', updatePointing, false);//improved but slow picking with HD picker addon
             
             // switch headlight on if no other lights
             var lights = scene.querySelector('PointLight, DirectionalLight, SpotLight');
+            var runtime = x3dElement.runtime ;
+            var navInfo = runtime.getActiveBindable('NavigationInfo') ;
             if (!lights) {
-                var runtime = document.querySelector('X3D').runtime ;
-                var navInfo = runtime.getActiveBindable('NavigationInfo') ;
-                navInfo.setAttribute('headlight', true);}
+                navInfo.setAttribute('headlight', true);
+            }
+            
+            x3dElement.addEventListener('keypress', toggleHeadlight, false);
+            
+            function toggleHeadlight (event) {
+                if (event.charCode !== 120) {return;} //'x'
+                var hl = navInfo.getFieldValue('headlight');
+                navInfo.setFieldValue('headlight', !hl);
+            }
+            
+            scene.addEventListener('mousemove', updatePointing, false);//improved but slow picking with HD picker addon
             
             function updatePointing (event) {
                 //update HUD
@@ -140,8 +162,9 @@ f.write('''<!DOCTYPE html>
                 var veNode = event.hitObject.querySelector('[yscale]'); // any child object with yscale attribute
                 var ve = veNode ? 1.0 * veNode.yscale : 1.0 ;
                 hud.textContent = "long.: "+gd.x.toFixed(3)+"° lat.: "+gd.y.toFixed(3)+"° height: "+(gd.z/ve).toFixed(1)+"m";
-            };
+            }
         }
+        //]]>
     </script>
 </body>
 </html>
