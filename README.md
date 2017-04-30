@@ -35,11 +35,13 @@ Steps to try out:
  - separate out sub-model: shape from dem, done
  - expose light intensity (brightness) to model, done
  - headlight toggle ('x' key'), done
+ - control toggle ('z' key), done
+ - time slider to set sun position, done
  ...
 
 ## Examples
 
-use PdUp/PgDown to change perspective, drag circle to hill shade
+use PdUp/PgDown to change perspective, drag circle to hill shade, slide to set sun position, z to toggle
 
 small
 
