@@ -59,10 +59,13 @@ color contours (Pseudo Color Single Band Style)
 
 https://cloud.githubusercontent.com/assets/6171115/26034050/84e814f6-3884-11e7-916d-cf374f2a6f79.png
 
+color contours (Pseudo Color Single Band Style)
+
+https://cloud.githubusercontent.com/assets/6171115/26034050/84e814f6-3884-11e7-916d-cf374f2a6f79.png
+
 using cobweb with pure X3D
 
 ![image](https://cloud.githubusercontent.com/assets/6171115/24529414/770ea4f4-1579-11e7-8221-1b4d24d18a6f.png)
-
 
 ## Documentation bits
 ![image](https://cloud.githubusercontent.com/assets/6171115/25255760/7a9baac2-25fa-11e7-8231-18e3aa8056bd.png)
