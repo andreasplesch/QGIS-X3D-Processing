@@ -3,7 +3,7 @@ QGIS Processing scripts, models and plugins for X3D export
 
 ## Summary
 Steps to try out:
-1. get a DEM (for example from ned.gov, or https://github.com/andreasplesch/QGIS-X3D-Processing/raw/master/examples/output/n35w120utmWGS84samll.tif)
+1. get a DEM (for example from ned.gov, or https://github.com/andreasplesch/QGIS-X3D-Processing/raw/master/examples/output/n35w120utmWGS84_200x200nd999.tif)
 2. load into qgis
 3. crop and downsample to ca. 500x500 pixels, warp to longlat WGS84
 4. set additional no data value in Properties - Transparency (to 0 in above DEM)
