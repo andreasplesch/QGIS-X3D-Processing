@@ -1,13 +1,12 @@
 '''QGIS Processing script
 (c) 2017 Andreas Plesch
 extracts and returns color ramp as SFImage from raster layer
-as well as interpolation type as magnification filer
+as well as interpolation type as magnification filter
 and interval boundaries as string
 or custom values if requested
-name obsolete: use X3D_color_ramp script
 '''
 ##X3D=group
-##SFImage string from color_ramp=name
+##X3D_color_ramp=name
 ##input_raster=raster
 ##extract_color_ramp=boolean True
 ##custom_ramp=string 3 1 1 0x00 0x80 0xff

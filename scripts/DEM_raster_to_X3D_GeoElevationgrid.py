@@ -10,6 +10,8 @@ convert raster layer with DEM data to xml encoded X3D GeoElevationgrid node
 ##vertical_exaggeration=number 1
 ##significant_digits_in_output=number 6
 ##smooth_rendering=boolean True
+##include_TextureCoordinate=string True
+##X3D_TextureCoordinate=file
 ##X3D_GeoElevationGrid_file=output file
 
 import os.path
@@ -18,6 +20,7 @@ from processing.core.GeoAlgorithmExecutionException import GeoAlgorithmExecution
 
 # constants
 MAXDIM=1000 # X3D is all text
+LINELENGTH=80 # make shorter lines
 X3DProjections={'utm':'UTM', 'longlat':'GD'} # as 'Acronyms'
 X3DEllipsoids = { # http://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/components/geodata.html#t-earthellipsoids
 (6377563.396, 299.3249646): 'AA', # Airy 1830
@@ -128,11 +131,25 @@ f.write( "  creaseAngle='%s'\n" % creaseAngle ) # smoothing
 f.write( "  yScale='%s'\n" % vertical_exaggeration )
 if geoSystem != ['GD','WE']: # default
     f.write( "  geoSystem='%s'\n" % " ".join(gS) )
+
 f.write( "  height=' ")
+i = 0
 for v in values:
     if v is None: v = noDataValue
     f.write( "%.*G " % (int(significant_digits_in_output), v))
+    if i % LINELENGTH == 0: f.write("\n")
+    i += 1
 f.write( "'>\n" )
+
+#texture coordinates
+if include_TextureCoordinate == 'True':
+    if X3D_TextureCoordinate is not None:
+        if len(X3D_TextureCoordinate) != 0:
+            texNode = open(X3D_TextureCoordinate, 'r')
+            for line in texNode:
+                f.write("  "+line)
+            texNode.close()
+
 #f.write( ">\n" )
 
 f.write( "  <MetadataSet name='Raster metadata' >\n")
