@@ -55,6 +55,10 @@ medium (topo30 resampled to 600x300, 100x v.e.)
 
 https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/topo30_600x300dir.html
 
+color contours (Pseudo Color Single Band Style)
+
+https://cloud.githubusercontent.com/assets/6171115/26034050/84e814f6-3884-11e7-916d-cf374f2a6f79.png
+
 using cobweb with pure X3D
 
 ![image](https://cloud.githubusercontent.com/assets/6171115/24529414/770ea4f4-1579-11e7-8221-1b4d24d18a6f.png)
