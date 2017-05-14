@@ -133,8 +133,8 @@
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 138.0, 
-                            "x": 107.0
+                            "y": 145.0, 
+                            "x": 114.0
                         }, 
                         "class": "point"
                     }, 
@@ -168,8 +168,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 409.0, 
-                            "x": 391.0
+                            "y": 412.0, 
+                            "x": 401.0
                         }, 
                         "class": "point"
                     }, 
@@ -179,6 +179,13 @@
                             "values": {
                                 "alg": "SCRIPTSFIMAGESTRINGFROMCOLORRAMP_1", 
                                 "output": "output_SFImage_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "magnificationFilter": {
+                            "values": {
+                                "alg": "SCRIPTSFIMAGESTRINGFROMCOLORRAMP_1", 
+                                "output": "output_magFilter"
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
                         }
@@ -197,14 +204,21 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 119.0, 
-                            "x": 359.0
+                            "y": 116.0, 
+                            "x": 624.0
                         }, 
                         "class": "point"
                     }, 
                     "dependencies": [], 
                     "params": {
                         "significant_digits_in_output": 5.0, 
+                        "X3D_TextureCoordinate": {
+                            "values": {
+                                "alg": "SCRIPTTEXTURECOORDINATEFROMDEM_1", 
+                                "output": "X3D_TextureCoordinate_file"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
                         "smooth_rendering": {
                             "values": {
                                 "name": "smooth"
@@ -230,36 +244,6 @@
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.Algorithm"
             }, 
-            "SCRIPTSFIMAGESTRINGFROMCOLORRAMP_1": {
-                "values": {
-                    "name": "SCRIPTSFIMAGESTRINGFROMCOLORRAMP_1", 
-                    "paramsFolded": true, 
-                    "outputs": {}, 
-                    "outputsFolded": true, 
-                    "pos": {
-                        "values": {
-                            "y": 314.0, 
-                            "x": 382.0
-                        }, 
-                        "class": "point"
-                    }, 
-                    "dependencies": [], 
-                    "params": {
-                        "input_raster": {
-                            "values": {
-                                "name": "dem"
-                            }, 
-                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
-                        }, 
-                        "extract_color_ramp": true, 
-                        "custom_ramp": "3 1 1 0x00 0x80 0xff"
-                    }, 
-                    "active": true, 
-                    "consoleName": "script:sfimagestringfromcolorramp", 
-                    "description": "SFImage string from color_ramp"
-                }, 
-                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
-            }, 
             "SCRIPTCOLORSTRINGFROMCOLORIZECOLOR_1": {
                 "values": {
                     "name": "SCRIPTCOLORSTRINGFROMCOLORIZECOLOR_1", 
@@ -268,8 +252,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 215.0, 
-                            "x": 375.0
+                            "y": 380.0, 
+                            "x": 111.0
                         }, 
                         "class": "point"
                     }, 
@@ -300,6 +284,76 @@
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.Algorithm"
             }, 
+            "SCRIPTSFIMAGESTRINGFROMCOLORRAMP_1": {
+                "values": {
+                    "name": "SCRIPTSFIMAGESTRINGFROMCOLORRAMP_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 277.0, 
+                            "x": 368.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_raster": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "custom_interpolation": 0, 
+                        "custom_boundaries": "0 500 1000", 
+                        "extract_color_ramp": true, 
+                        "custom_ramp": "3 1 1 0x00 0x80 0xff"
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:sfimagestringfromcolorramp", 
+                    "description": "SFImage string from color_ramp"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTTEXTURECOORDINATEFROMDEM_1": {
+                "values": {
+                    "name": "SCRIPTTEXTURECOORDINATEFROMDEM_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 186.0, 
+                            "x": 362.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "range_max": 1000.0, 
+                        "intervals": {
+                            "values": {
+                                "alg": "SCRIPTSFIMAGESTRINGFROMCOLORRAMP_1", 
+                                "output": "output_boundaries_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "DEM_raster_layer": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "significant_digits_in_output": 3.0, 
+                        "range_min": 0.0
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:texturecoordinatefromdem", 
+                    "description": "TextureCoordinate_from_DEM"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
             "SCRIPTX3DSHAPENODEFROMAPPEARANCEANDGEOMETRY_1": {
                 "values": {
                     "name": "SCRIPTX3DSHAPENODEFROMAPPEARANCEANDGEOMETRY_1", 
@@ -323,7 +377,7 @@
                     "pos": {
                         "values": {
                             "y": 204.0, 
-                            "x": 619.0
+                            "x": 618.0
                         }, 
                         "class": "point"
                     }, 

@@ -5,8 +5,8 @@
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 83.0, 
-                            "x": 107.0
+                            "y": 93.0, 
+                            "x": 118.0
                         }, 
                         "class": "point"
                     }, 
@@ -32,8 +32,8 @@
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 189.0, 
-                            "x": 106.0
+                            "y": 340.0, 
+                            "x": 116.0
                         }, 
                         "class": "point"
                     }, 
@@ -57,7 +57,7 @@
                     "pos": {
                         "values": {
                             "y": 29.0, 
-                            "x": 106.0
+                            "x": 122.0
                         }, 
                         "class": "point"
                     }, 
@@ -80,8 +80,8 @@
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 321.0, 
-                            "x": 109.0
+                            "y": 486.0, 
+                            "x": 114.0
                         }, 
                         "class": "point"
                     }, 
@@ -107,8 +107,8 @@
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 236.0, 
-                            "x": 108.0
+                            "y": 413.0, 
+                            "x": 115.0
                         }, 
                         "class": "point"
                     }, 
@@ -133,8 +133,8 @@
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 138.0, 
-                            "x": 107.0
+                            "y": 267.0, 
+                            "x": 119.0
                         }, 
                         "class": "point"
                     }, 
@@ -160,6 +160,34 @@
         "group": "X3D", 
         "name": "X3D Shape from DEM", 
         "algs": {
+            "SCRIPTISSINGLEBANDPSEUDOCOLOR_1": {
+                "values": {
+                    "name": "SCRIPTISSINGLEBANDPSEUDOCOLOR_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 196.0, 
+                            "x": 389.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_raster": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:issinglebandpseudocolor", 
+                    "description": "is_singlebandpseudocolor"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
             "SCRIPTDEMRASTERTOGEOELEVATIONGRID_1": {
                 "values": {
                     "name": "SCRIPTDEMRASTERTOGEOELEVATIONGRID_1", 
@@ -168,29 +196,43 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 119.0, 
-                            "x": 359.0
+                            "y": 42.0, 
+                            "x": 392.0
                         }, 
                         "class": "point"
                     }, 
                     "dependencies": [], 
                     "params": {
-                        "significant_digits_in_output": 5.0, 
                         "smooth_rendering": {
                             "values": {
                                 "name": "smooth"
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
                         }, 
-                        "DEM_raster_layer": {
+                        "significant_digits_in_output": 5.0, 
+                        "X3D_TextureCoordinate": {
                             "values": {
-                                "name": "dem"
+                                "alg": "SCRIPTTEXTURECOORDINATEFROMDEM_1", 
+                                "output": "X3D_TextureCoordinate_file"
                             }, 
-                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "include_TextureCoordinate": {
+                            "values": {
+                                "alg": "SCRIPTISSINGLEBANDPSEUDOCOLOR_1", 
+                                "output": "output_isSingleBandPseudoColor"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
                         }, 
                         "vertical_exaggeration": {
                             "values": {
                                 "name": "verticalexaggeration"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "DEM_raster_layer": {
+                            "values": {
+                                "name": "dem"
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
                         }
@@ -201,53 +243,35 @@
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.Algorithm"
             }, 
-            "SCRIPTX3DSHAPENODEFROMAPPEARANCEANDGEOMETRY_1": {
+            "SCRIPTX3DCOLORRAMP_1": {
                 "values": {
-                    "name": "SCRIPTX3DSHAPENODEFROMAPPEARANCEANDGEOMETRY_1", 
+                    "name": "SCRIPTX3DCOLORRAMP_1", 
                     "paramsFolded": true, 
-                    "outputs": {
-                        "output_X3D_Shape_file": {
-                            "values": {
-                                "description": "DEM Shape", 
-                                "pos": {
-                                    "values": {
-                                        "y": 325.0, 
-                                        "x": 635.0
-                                    }, 
-                                    "class": "point"
-                                }
-                            }, 
-                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
-                        }
-                    }, 
+                    "outputs": {}, 
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 204.0, 
-                            "x": 619.0
+                            "y": 278.0, 
+                            "x": 392.0
                         }, 
                         "class": "point"
                     }, 
                     "dependencies": [], 
                     "params": {
-                        "X3D_Geometry_file": {
+                        "input_raster": {
                             "values": {
-                                "alg": "SCRIPTDEMRASTERTOGEOELEVATIONGRID_1", 
-                                "output": "X3D_GeoElevationGrid_file"
+                                "name": "dem"
                             }, 
-                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
                         }, 
-                        "appearance": {
-                            "values": {
-                                "alg": "SCRIPTGENERATEX3DCOLORAPPEARANCE_1", 
-                                "output": "output_string"
-                            }, 
-                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
-                        }
+                        "custom_interpolation": 0, 
+                        "custom_boundaries": "0 500 1000", 
+                        "extract_color_ramp": true, 
+                        "custom_ramp": "3 1 1 0x00 0x80 0xff"
                     }, 
                     "active": true, 
-                    "consoleName": "script:x3dshapenodefromappearanceandgeometry", 
-                    "description": "X3D Shape node from Appearance and  Geometry"
+                    "consoleName": "script:x3dcolorramp", 
+                    "description": "X3D_color_ramp"
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.Algorithm"
             }, 
@@ -259,8 +283,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 206.0, 
-                            "x": 365.0
+                            "y": 372.0, 
+                            "x": 390.0
                         }, 
                         "class": "point"
                     }, 
@@ -291,22 +315,124 @@
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.Algorithm"
             }, 
-            "SCRIPTGENERATEX3DCOLORAPPEARANCE_1": {
+            "SCRIPTTEXTURECOORDINATEFROMDEM_1": {
                 "values": {
-                    "name": "SCRIPTGENERATEX3DCOLORAPPEARANCE_1", 
+                    "name": "SCRIPTTEXTURECOORDINATEFROMDEM_1", 
                     "paramsFolded": true, 
                     "outputs": {}, 
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 321.0, 
-                            "x": 367.0
+                            "y": 123.0, 
+                            "x": 392.0
                         }, 
                         "class": "point"
                     }, 
                     "dependencies": [], 
                     "params": {
-                        "emissiveColor": "0.01 0.01 0.01", 
+                        "range_max": 1000.0, 
+                        "intervals": {
+                            "values": {
+                                "alg": "SCRIPTX3DCOLORRAMP_1", 
+                                "output": "output_boundaries_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "DEM_raster_layer": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "significant_digits_in_output": 3.0, 
+                        "range_min": 0.0
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:texturecoordinatefromdem", 
+                    "description": "TextureCoordinate_from_DEM"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTX3DSHAPENODEFROMAPPEARANCEANDGEOMETRY_1": {
+                "values": {
+                    "name": "SCRIPTX3DSHAPENODEFROMAPPEARANCEANDGEOMETRY_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "output_X3D_Shape_file": {
+                            "values": {
+                                "description": "DEM Shape", 
+                                "pos": {
+                                    "values": {
+                                        "y": 322.0, 
+                                        "x": 732.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 222.0, 
+                            "x": 697.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "X3D_Geometry_file": {
+                            "values": {
+                                "alg": "SCRIPTDEMRASTERTOGEOELEVATIONGRID_1", 
+                                "output": "X3D_GeoElevationGrid_file"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "appearance": {
+                            "values": {
+                                "alg": "SCRIPTGENERATEX3DAPPEARANCE_1", 
+                                "output": "output_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:x3dshapenodefromappearanceandgeometry", 
+                    "description": "X3D Shape node from Appearance and  Geometry"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTGENERATEX3DAPPEARANCE_1": {
+                "values": {
+                    "name": "SCRIPTGENERATEX3DAPPEARANCE_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 454.0, 
+                            "x": 577.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "use_PixelTexture": {
+                            "values": {
+                                "alg": "SCRIPTISSINGLEBANDPSEUDOCOLOR_1", 
+                                "output": "output_isSingleBandPseudoColor"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "magnificationFilter": {
+                            "values": {
+                                "alg": "SCRIPTX3DCOLORRAMP_1", 
+                                "output": "output_magFilter"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "emissiveColor": "0 0 0", 
                         "diffuseColor": {
                             "values": {
                                 "alg": "SCRIPTCOLORSTRINGFROMCOLORIZECOLOR_1", 
@@ -320,13 +446,20 @@
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
                         }, 
+                        "pixelTexture": {
+                            "values": {
+                                "alg": "SCRIPTX3DCOLORRAMP_1", 
+                                "output": "output_SFImage_string"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
                         "specularColor": "1 1 1", 
                         "transparency": 0.0, 
                         "ambientIntensity": 0.2
                     }, 
                     "active": true, 
-                    "consoleName": "script:generatex3dcolorappearance", 
-                    "description": "generate X3D color Appearance"
+                    "consoleName": "script:generatex3dappearance", 
+                    "description": "generate X3D Appearance"
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.Algorithm"
             }
