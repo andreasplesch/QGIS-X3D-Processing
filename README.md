@@ -12,6 +12,23 @@ Steps to try out:
 7. run raster2x3dom01 model
 8. open resulting html file
 
+## CHANGES
+
+ - use single band pseudo color style if selected
+   - support discrete and linear (interpolated) interpolation options
+   - adopt color ramp and intervals from style
+ - add accurate picking: done
+ - passive picking: add crosshair at center and report values from there. For mobile.
+ - added directional lighting: default orientation is from hillshade style azimuth and altitude, done
+ - multidirectional option also supported, done
+ - added svg knob to web page to interactively control directional light if available, with touch support
+ - separate out sub-model: shape from dem, done
+ - expose light intensity (brightness) to model, done
+ - headlight toggle ('x' key'), done
+ - control toggle ('z' key), done
+ - time slider to set sun position, done
+ 
+
 ## TODO
 
  - finalize DEM raster to GeoElevationGrid: better metadata from qgis, doc strings
@@ -27,16 +44,6 @@ Steps to try out:
  - extrude polygons from vector layer by height attribute or constant
    - need to be in projected crs, then just use first point as reference, and first point geographic coordinates for geolocation
  - GeoLOD option: use gdal tile functionality for both DEM and imagery
- - add accurate picking: done
- - passive picking: add crosshair at center and report values from there. For mobile.
- - added directional lighting: default orientation is from hillshade style azimuth and altitude, done
- - multidirectional option also supported, done
- - added svg knob to web page to interactively control directional light if available, with touch support
- - separate out sub-model: shape from dem, done
- - expose light intensity (brightness) to model, done
- - headlight toggle ('x' key'), done
- - control toggle ('z' key), done
- - time slider to set sun position, done
  ...
 
 ## Examples
