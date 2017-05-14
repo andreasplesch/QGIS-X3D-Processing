@@ -45,7 +45,7 @@ use PdUp/PgDown to change perspective, drag circle to hill shade, slide to set s
 
 small
 
-https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/n35w120nedWGS84_200x200dir.html
+https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/n35w120nedWGS84_200x200tex.html
 
 large (takes a couple minutes to display):
 
