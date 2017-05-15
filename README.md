@@ -60,7 +60,7 @@ https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/grdn
 
 medium (topo30 resampled to 600x300, 100x v.e.)
 
-https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/topo30_600x300dir.html
+https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/topo30_600x300tex.html
 
 
 
