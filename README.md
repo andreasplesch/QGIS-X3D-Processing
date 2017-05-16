@@ -18,7 +18,6 @@ Steps to try out:
    - support discrete and linear (interpolated) interpolation options
    - adopt color ramp and intervals from style
  - add accurate picking: done
- - passive picking: add crosshair at center and report values from there. For mobile.
  - added directional lighting: default orientation is from hillshade style azimuth and altitude, done
  - multidirectional option also supported, done
  - added svg knob to web page to interactively control directional light if available, with touch support
@@ -32,10 +31,11 @@ Steps to try out:
 ## TODO
 
  - finalize DEM raster to GeoElevationGrid: better metadata from qgis, doc strings
- - perhaps option to enable wrap around by repeating first column after last column
+ - perhaps option to enable wrap around by repeating first column after last column, for globes
  - document other scripts
  - geoOrigin option: DEF/USE, needs to be first, include optionally with empty scene and update when appending ?
  - use wiki for example processing workflow
+ - passive picking: add crosshair at center and report values from there. For mobile.
  - add draping of other raster as texture: think about how to modularize
    - warp to crs of other raster script
    - crop/enlarge to extent of other raster script
