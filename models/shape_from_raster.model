@@ -52,6 +52,58 @@
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
             }, 
+            "imagery": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 702.0, 
+                            "x": 118.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "imagery", 
+                            "showSublayersDialog": true, 
+                            "default": null, 
+                            "value": null, 
+                            "exported": null, 
+                            "hidden": false, 
+                            "optional": true, 
+                            "description": "Imagery"
+                        }, 
+                        "class": "processing.core.parameters.ParameterRaster"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "texturefolder": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 633.0, 
+                            "x": 120.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "texturefolder", 
+                            "default": null, 
+                            "isFolder": true, 
+                            "value": null, 
+                            "ext": null, 
+                            "hidden": false, 
+                            "optional": true, 
+                            "description": "texture folder"
+                        }, 
+                        "class": "processing.core.parameters.ParameterFile"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
             "smooth": {
                 "values": {
                     "pos": {
@@ -363,8 +415,8 @@
                                 "description": "DEM Shape", 
                                 "pos": {
                                     "values": {
-                                        "y": 322.0, 
-                                        "x": 732.0
+                                        "y": 312.0, 
+                                        "x": 831.0
                                     }, 
                                     "class": "point"
                                 }
@@ -403,6 +455,41 @@
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.Algorithm"
             }, 
+            "SCRIPTSAVEASTEXTUREFILE_1": {
+                "values": {
+                    "name": "SCRIPTSAVEASTEXTUREFILE_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 612.0, 
+                            "x": 418.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_raster": {
+                            "values": {
+                                "name": "imagery"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "image_format": 0, 
+                        "output_folder": {
+                            "values": {
+                                "name": "texturefolder"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:saveastexturefile", 
+                    "description": "save as texture file"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
             "SCRIPTGENERATEX3DAPPEARANCE_1": {
                 "values": {
                     "name": "SCRIPTGENERATEX3DAPPEARANCE_1", 
@@ -411,13 +498,20 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 454.0, 
+                            "y": 468.0, 
                             "x": 577.0
                         }, 
                         "class": "point"
                     }, 
                     "dependencies": [], 
                     "params": {
+                        "use_ImageTexture": {
+                            "values": {
+                                "alg": "SCRIPTSAVEASTEXTUREFILE_1", 
+                                "output": "output_isAvailable"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
                         "use_PixelTexture": {
                             "values": {
                                 "alg": "SCRIPTISSINGLEBANDPSEUDOCOLOR_1", 
@@ -446,7 +540,7 @@
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
                         }, 
-                        "pixelTexture": {
+                        "PixelTexture": {
                             "values": {
                                 "alg": "SCRIPTX3DCOLORRAMP_1", 
                                 "output": "output_SFImage_string"
@@ -455,7 +549,14 @@
                         }, 
                         "specularColor": "1 1 1", 
                         "transparency": 0.0, 
-                        "ambientIntensity": 0.2
+                        "ambientIntensity": 0.2, 
+                        "ImageTexture_url": {
+                            "values": {
+                                "alg": "SCRIPTSAVEASTEXTUREFILE_1", 
+                                "output": "output_filename"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
                     }, 
                     "active": true, 
                     "consoleName": "script:generatex3dappearance", 

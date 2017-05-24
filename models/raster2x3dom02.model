@@ -1,6 +1,59 @@
 {
     "values": {
         "inputs": {
+            "corheight": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 506.0, 
+                            "x": 117.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "corheight", 
+                            "min": -10000000, 
+                            "default": 0, 
+                            "max": 10000000, 
+                            "value": 0, 
+                            "hidden": false, 
+                            "isInteger": true, 
+                            "optional": false, 
+                            "description": "COR_height"
+                        }, 
+                        "class": "processing.core.parameters.ParameterNumber"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "imagery": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 574.0, 
+                            "x": 112.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "imagery", 
+                            "showSublayersDialog": true, 
+                            "default": null, 
+                            "value": null, 
+                            "exported": null, 
+                            "hidden": false, 
+                            "optional": true, 
+                            "description": "Imagery raster"
+                        }, 
+                        "class": "processing.core.parameters.ParameterRaster"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
             "smoothrendering": {
                 "values": {
                     "pos": {
@@ -107,8 +160,8 @@
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 398.0, 
-                            "x": 447.0
+                            "y": 717.0, 
+                            "x": 112.0
                         }, 
                         "class": "point"
                     }, 
@@ -123,6 +176,32 @@
                             "description": "open in browser"
                         }, 
                         "class": "processing.core.parameters.ParameterBoolean"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "htmloutput": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 646.0, 
+                            "x": 115.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "htmloutput", 
+                            "default": null, 
+                            "isFolder": false, 
+                            "value": null, 
+                            "ext": null, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "html output"
+                        }, 
+                        "class": "processing.core.parameters.ParameterFile"
                     }
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
@@ -146,7 +225,7 @@
                             "exported": null, 
                             "hidden": false, 
                             "optional": false, 
-                            "description": "dem_raster_layer"
+                            "description": "DEM raster"
                         }, 
                         "class": "processing.core.parameters.ParameterRaster"
                     }
@@ -253,38 +332,19 @@
                 "values": {
                     "name": "SCRIPTINSERTX3DNODEINTOHTML_2", 
                     "paramsFolded": true, 
-                    "outputs": {
-                        "output_X3D_html": {
-                            "values": {
-                                "description": "output x3dom html page", 
-                                "pos": {
-                                    "values": {
-                                        "y": 476.0, 
-                                        "x": 706.0
-                                    }, 
-                                    "class": "point"
-                                }
-                            }, 
-                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
-                        }
-                    }, 
+                    "outputs": {}, 
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 399.0, 
-                            "x": 704.0
+                            "y": 402.0, 
+                            "x": 691.0
                         }, 
                         "class": "point"
                     }, 
                     "dependencies": [], 
                     "params": {
-                        "open_in_browser": {
-                            "values": {
-                                "name": "openinbrowser"
-                            }, 
-                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
-                        }, 
-                        "output_html_encoding": false, 
+                        "open_in_browser": false, 
+                        "output_html_encoding": true, 
                         "X3D_node": {
                             "values": {
                                 "alg": "MODELERSHAPE_FROM_RASTER_1", 
@@ -411,8 +471,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 289.0, 
-                            "x": 442.0
+                            "y": 319.0, 
+                            "x": 446.0
                         }, 
                         "class": "point"
                     }, 
@@ -430,21 +490,34 @@
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
                         }, 
+                        "imagery": {
+                            "values": {
+                                "name": "imagery"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "texturefolder": {
+                            "values": {
+                                "name": "htmloutput"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
                         "smooth": {
                             "values": {
                                 "name": "smoothrendering"
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
                         }, 
-                        "shininess": {
-                            "values": {
-                                "name": "shininess"
-                            }, 
-                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
-                        }, 
+                        "useimagery": "False", 
                         "rgbcolor": {
                             "values": {
                                 "name": "alternativecolor"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "shininess": {
+                            "values": {
+                                "name": "shininess"
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
                         }, 
@@ -458,6 +531,47 @@
                     "active": true, 
                     "consoleName": "modeler:shape_from_raster", 
                     "description": "X3D Shape from DEM"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTWRITEFILE_1": {
+                "values": {
+                    "name": "SCRIPTWRITEFILE_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 517.0, 
+                            "x": 687.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "output_file": {
+                            "values": {
+                                "name": "htmloutput"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "open_in_browser": {
+                            "values": {
+                                "name": "openinbrowser"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "input_file": {
+                            "values": {
+                                "alg": "SCRIPTINSERTX3DNODEINTOHTML_2", 
+                                "output": "output_X3D_html"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:writefile", 
+                    "description": "write file"
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.Algorithm"
             }, 
@@ -528,7 +642,12 @@
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
                         }, 
-                        "centerofrotationheight": 0.0
+                        "centerofrotationheight": {
+                            "values": {
+                                "name": "corheight"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
                     }, 
                     "active": true, 
                     "consoleName": "modeler:geoviewpointsfromraster", 
