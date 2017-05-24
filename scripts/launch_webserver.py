@@ -14,14 +14,17 @@ import SimpleHTTPServer
 import SocketServer
 import threading
 '''
+import sys
 from PyQt4.QtCore import QProcess
 
 p = QProcess()
 p.setWorkingDirectory(root_folder)
-args = ('-m', 'SimpleHTTPServer', str(port))
-#program = 'python -m SimpleHTTPServer %s' % (port)
-#program='notepad'
-state, pid= p.startDetached('python', args, root_folder) 
+
+http_server = ('SimpleHTTPServer','http.server')[sys.version_info.major == 2]
+args = ('-m', http_server, str(port))
+
+state, pid= p.startDetached(sys.executable, args, root_folder)
+
 print ("webserver process started at pid %s, status %s" % (pid, state))
 if state: progress.setInfo("webserver process started serving from port:", port)
 '''
