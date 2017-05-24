@@ -7,9 +7,9 @@ append x3d node to existing x3d scene in a html file
 ##insert X3D node into html=name
 ##X3D_html=file
 ##X3D_node=file
+##open_in_browser=boolean False
 ##output_html_encoding=boolean False
 ##output_X3D_html=output file
-##open_in_browser=boolean False
 
 import xml.etree.ElementTree as ET
 #import xml.dom.minidom as DOM

@@ -12,8 +12,10 @@ or a PixelTexture
 ##shininess=number 0.2
 ##specularColor=string 0 0 0
 ##transparency=number 0
+##use_ImageTexture=string False
+##ImageTexture_url=string textures/exampleImagery.jpg
 ##use_PixelTexture=string False
-##pixelTexture=string 3 1 1 0x00 0x80 0xff
+##PixelTexture=string 3 1 1 0x00 0x80 0xff
 ##magnificationFilter=string NEAREST_PIXEL
 ##output_string=output string
 
@@ -24,30 +26,34 @@ shininessDefault = 0.2
 specularColorDefault = '0 0 0'
 transparencyDefault = 0
 
-Out='<Appearance>'
-Out+='<Material'
+out='<Appearance>'
+out+='<Material'
 
 if ambientIntensity != ambientIntensityDefault:
-    Out+=" ambientIntensity='%s'" % ambientIntensity
+    out+=" ambientIntensity='%s'" % ambientIntensity
 if diffuseColor != diffuseColorDefault:
-    Out+=" diffuseColor='%s'" % diffuseColor
+    out+=" diffuseColor='%s'" % diffuseColor
 if emissiveColor != emissiveColorDefault:
-    Out+=" emissiveColor='%s'" % emissiveColor
+    out+=" emissiveColor='%s'" % emissiveColor
 if specularColor != specularColorDefault:
-    Out+=" specularColor='%s'" % specularColor
+    out+=" specularColor='%s'" % specularColor
 if shininess != shininessDefault:
-    Out+=" shininess='%s'" % shininess
+    out+=" shininess='%s'" % shininess
 if transparency != transparencyDefault:
-    Out+=" transparency='%s'" % transparency
+    out+=" transparency='%s'" % transparency
 
-Out+='></Material>'
+out+='></Material>'
 
-if use_PixelTexture == 'True':
-    Out+='<PixelTexture image="%s">' % pixelTexture
-    Out+='  <TextureProperties boundaryModeS="CLAMP" boundaryModeT="CLAMP" magnificationFilter="%s"></TextureProperties>' % magnificationFilter
-    Out+='</PixelTexture>'
+if use_ImageTexture == 'True':
+    out+='<ImageTexture url="%s">' % ImageTexture_url
+    out+='</ImageTexture>'
 
-Out+='</Appearance>'
+elif use_PixelTexture == 'True':
+    out+='<PixelTexture image="%s">' % PixelTexture
+    out+='  <TextureProperties boundaryModeS="CLAMP" boundaryModeT="CLAMP" magnificationFilter="%s"></TextureProperties>' % magnificationFilter
+    out+='</PixelTexture>'
 
-output_string = Out
-#print(Out)
+out+='</Appearance>'
+
+output_string = out
+#print(out)
