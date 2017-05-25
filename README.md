@@ -63,6 +63,10 @@ medium (topo30 resampled to 600x300, 100x v.e.)
 https://rawgit.com/andreasplesch/QGIS-X3D-Processing/master/examples/output/topo30_600x300tex.html
 
 
+Map draping (texture mapping)
+
+![image](https://cloud.githubusercontent.com/assets/6171115/26471669/9f774b80-4170-11e7-8fc4-a5cc59c2a54d.png)
+
 
 color contours (Pseudo Color Single Band Style)
 
