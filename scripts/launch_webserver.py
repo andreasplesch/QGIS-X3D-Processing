@@ -15,7 +15,19 @@ import SocketServer
 import threading
 '''
 import sys
-from PyQt4.QtCore import QProcess
+import os
+from PyQt4.QtCore import QProcess, QSettings
+from qgis.gui import QgsMessageBar
+from qgis.utils import iface
+
+#kill existing server
+s = QSettings()
+server_pid = s.value("X3DProcessing/server_pid")
+if server_pid is not None:
+    try:
+        os.kill(int(server_pid), 15)
+    except:
+        print('killed already %s' % server_pid)
 
 p = QProcess()
 p.setWorkingDirectory(root_folder)
@@ -26,7 +38,12 @@ args = ('-m', http_server, str(port))
 state, pid= p.startDetached(sys.executable, args, root_folder)
 
 print ("webserver process started at pid %s, status %s" % (pid, state))
-if state: progress.setInfo("webserver process started serving from port:", port)
+
+if state:
+    s.setValue("X3DProcessing/server_pid", pid)
+    iface.messageBar().pushMessage("X3D Processing","webserver process started serving %s from port: %s" % (root_folder, port), level=QgsMessageBar.INFO,duration=5)
+    
+    
 '''
 def webserver (root, PORT):
 

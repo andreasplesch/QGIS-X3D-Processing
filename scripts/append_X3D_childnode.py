@@ -35,7 +35,7 @@ parent.append(ET.fromstring(X3D_node))
 #scene.appendChild(x3dNodeElement)
 method = 'xml'
 output_node_string = ET.tostring(parent, 'utf-8', method)
-print(output_node_string)
+#print(output_node_string)
 #if open_in_browser or output_html_encoding: encoding = 'html'
 #doc.write(output_X3D_html, 'utf-8', False, None, encoding)
 #f=open(output_X3D_scene, 'w')

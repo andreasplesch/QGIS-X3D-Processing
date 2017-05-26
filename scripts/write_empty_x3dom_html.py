@@ -1,3 +1,4 @@
+# coding: utf-8
 '''
 QGIS Processing script
 (c) 2017 Andreas Plesch
