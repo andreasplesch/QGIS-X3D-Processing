@@ -56,8 +56,8 @@
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 702.0, 
-                            "x": 118.0
+                            "y": 701.0, 
+                            "x": 120.0
                         }, 
                         "class": "point"
                     }, 
@@ -82,8 +82,8 @@
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 633.0, 
-                            "x": 120.0
+                            "y": 624.0, 
+                            "x": 118.0
                         }, 
                         "class": "point"
                     }, 
@@ -220,8 +220,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 196.0, 
-                            "x": 389.0
+                            "y": 198.0, 
+                            "x": 388.0
                         }, 
                         "class": "point"
                     }, 
@@ -248,7 +248,7 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 42.0, 
+                            "y": 44.0, 
                             "x": 392.0
                         }, 
                         "class": "point"
@@ -375,8 +375,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 123.0, 
-                            "x": 392.0
+                            "y": 120.0, 
+                            "x": 390.0
                         }, 
                         "class": "point"
                     }, 
@@ -464,7 +464,7 @@
                     "pos": {
                         "values": {
                             "y": 612.0, 
-                            "x": 418.0
+                            "x": 413.0
                         }, 
                         "class": "point"
                     }, 
