@@ -15,9 +15,9 @@ import webbrowser
 from PyQt4.QtCore import QUrl, QFileInfo
 
 port = int(server_port)
+html = QFileInfo(input_html)
 
 if open_in_browser:
-    html = QFileInfo(input_html)
     root_folder = html.canonicalPath()
     # kills running web server if necessary
     processing.runalg('script:launchwebserver', root_folder, port)

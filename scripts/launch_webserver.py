@@ -32,10 +32,11 @@ if server_pid is not None:
 p = QProcess()
 p.setWorkingDirectory(root_folder)
 
-http_server = ('SimpleHTTPServer','http.server')[sys.version_info.major == 2]
+http_server = ('SimpleHTTPServer', 'http.server')[sys.version_info.major == 3]
 args = ('-m', http_server, str(port))
 
-state, pid= p.startDetached(sys.executable, args, root_folder)
+executable = (sys.executable, os.path.dirname(sys.executable)+'\\python-qgis.bat')[sys.platform.startswith('win')]
+state, pid = p.startDetached(executable, args, root_folder)
 
 print ("webserver process started at pid %s, status %s" % (pid, state))
 
