@@ -575,6 +575,41 @@
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.Algorithm"
             }, 
+            "SCRIPTOPENHTMLINDEFAULTBROWSER_1": {
+                "values": {
+                    "name": "SCRIPTOPENHTMLINDEFAULTBROWSER_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 621.0, 
+                            "x": 702.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "html_file": {
+                            "values": {
+                                "alg": "SCRIPTWRITEFILE_1", 
+                                "output": "output_as_file"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "open_in_browser": {
+                            "values": {
+                                "name": "openinbrowser"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:openhtmlindefaultbrowser", 
+                    "description": "open html in default browser"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
             "MODELERDIRLIGHT_FROM_RASTER_1": {
                 "values": {
                     "name": "MODELERDIRLIGHT_FROM_RASTER_1", 
