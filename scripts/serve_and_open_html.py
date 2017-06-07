@@ -16,13 +16,15 @@ from PyQt4.QtCore import QUrl, QFileInfo
 
 port = int(server_port)
 html = QFileInfo(input_html)
+html_file_name = html.fileName()
 
 if open_in_browser:
     root_folder = html.canonicalPath()
     # kills running web server if necessary
     processing.runalg('script:launchwebserver', root_folder, port)
     #url = QUrl.fromLocalFile(output_file).toString()
-    url = 'http://localhost:%s/%s' % (port, html.fileName())
-    webbrowser.open_new(url)
-    
-html_file_name = html.fileName()
+    #deal with spaces and such
+    url = QUrl(u'http://localhost:%s/%s' % (port, html_file_name))
+    #perhaps warn if not ending in html
+    webbrowser.open_new(url.toString())
+

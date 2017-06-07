@@ -35,14 +35,16 @@ p.setWorkingDirectory(root_folder)
 http_server = ('SimpleHTTPServer', 'http.server')[sys.version_info.major == 3]
 args = ('-m', http_server, str(port))
 
-executable = (sys.executable, os.path.dirname(sys.executable)+'\\python-qgis.bat')[sys.platform.startswith('win')]
+exec_dir = os.path.dirname(sys.executable)
+executable = os.path.join(exec_dir, ('python2', 'python-qgis.bat')[sys.platform.startswith('win')])
+
 state, pid = p.startDetached(executable, args, root_folder)
 
 print ("webserver process started at pid %s, status %s" % (pid, state))
 
 if state:
     s.setValue("X3DProcessing/server_pid", pid)
-    iface.messageBar().pushMessage("X3D Processing","webserver process started serving %s from port: %s" % (root_folder, port), level=QgsMessageBar.INFO,duration=5)
+    iface.messageBar().pushMessage("X3D Processing","webserver process started serving %s from port: %s" % (root_folder, port), level=QgsMessageBar.INFO,duration=10)
     
     
 '''
