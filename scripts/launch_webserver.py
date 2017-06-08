@@ -24,10 +24,14 @@ from qgis.utils import iface
 s = QSettings()
 server_pid = s.value("X3DProcessing/server_pid")
 if server_pid is not None:
+    pid = int(server_pid)
     try:
-        os.kill(int(server_pid), 15)
+        if sys.platform.startswith('win'):
+            QProcess('TASKKILL /F /PID %s' % pid)
+        else:
+            os.kill(pid,  11)
     except:
-        print('killed already %s' % server_pid)
+        print('pid %s killed already' % pid)
 
 p = QProcess()
 p.setWorkingDirectory(root_folder)
