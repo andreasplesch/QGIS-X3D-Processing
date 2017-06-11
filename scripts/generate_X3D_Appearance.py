@@ -2,7 +2,7 @@
 QGIS processing script
 (c) 2017 Andreas Plesch
 generate a XML encoded X3D Appearance node with a color
-or a PixelTexture
+or a PixelTexture or a ImageTexture
 '''
 ##X3D=group
 ##generate X3D Appearance=name
