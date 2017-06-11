@@ -56,8 +56,8 @@
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 701.0, 
-                            "x": 120.0
+                            "y": 719.0, 
+                            "x": 135.0
                         }, 
                         "class": "point"
                     }, 
@@ -82,8 +82,8 @@
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 624.0, 
-                            "x": 118.0
+                            "y": 549.0, 
+                            "x": 119.0
                         }, 
                         "class": "point"
                     }, 
@@ -132,8 +132,8 @@
                 "values": {
                     "pos": {
                         "values": {
-                            "y": 486.0, 
-                            "x": 114.0
+                            "y": 476.0, 
+                            "x": 118.0
                         }, 
                         "class": "point"
                     }, 
@@ -212,6 +212,69 @@
         "group": "X3D", 
         "name": "X3D Shape from DEM", 
         "algs": {
+            "SCRIPTADDRASTER_1": {
+                "values": {
+                    "name": "SCRIPTADDRASTER_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": false, 
+                    "pos": {
+                        "values": {
+                            "y": 704.0, 
+                            "x": 479.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_raster": {
+                            "values": {
+                                "alg": "SCRIPTCLIPANDWARP_1", 
+                                "output": "clipped_imagery"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:addraster", 
+                    "description": "add_raster"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTCLIPANDWARP_1": {
+                "values": {
+                    "name": "SCRIPTCLIPANDWARP_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 783.0, 
+                            "x": 481.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "imagery": {
+                            "values": {
+                                "name": "imagery"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "dem": {
+                            "values": {
+                                "name": "dem"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:clipandwarp", 
+                    "description": "clip_and_warp"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
             "SCRIPTISSINGLEBANDPSEUDOCOLOR_1": {
                 "values": {
                     "name": "SCRIPTISSINGLEBANDPSEUDOCOLOR_1", 
@@ -303,8 +366,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 278.0, 
-                            "x": 392.0
+                            "y": 280.0, 
+                            "x": 384.0
                         }, 
                         "class": "point"
                     }, 
@@ -415,8 +478,8 @@
                                 "description": "DEM Shape", 
                                 "pos": {
                                     "values": {
-                                        "y": 312.0, 
-                                        "x": 831.0
+                                        "y": 341.0, 
+                                        "x": 759.0
                                     }, 
                                     "class": "point"
                                 }
@@ -455,16 +518,16 @@
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.Algorithm"
             }, 
-            "SCRIPTSAVEASTEXTUREFILE_1": {
+            "SCRIPTSAVERASTERSTYLE_1": {
                 "values": {
-                    "name": "SCRIPTSAVEASTEXTUREFILE_1", 
+                    "name": "SCRIPTSAVERASTERSTYLE_1", 
                     "paramsFolded": true, 
                     "outputs": {}, 
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 612.0, 
-                            "x": 413.0
+                            "y": 637.0, 
+                            "x": 169.0
                         }, 
                         "class": "point"
                     }, 
@@ -475,6 +538,35 @@
                                 "name": "imagery"
                             }, 
                             "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "script:saverasterstyle", 
+                    "description": "save_raster_style"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
+            "SCRIPTSAVEASTEXTUREFILE_1": {
+                "values": {
+                    "name": "SCRIPTSAVEASTEXTUREFILE_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 549.0, 
+                            "x": 469.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "input_raster": {
+                            "values": {
+                                "alg": "QGISSETSTYLEFORRASTERLAYER_1", 
+                                "output": "OUTPUT"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
                         }, 
                         "image_format": 0, 
                         "output_folder": {
@@ -490,6 +582,42 @@
                 }, 
                 "class": "processing.modeler.ModelerAlgorithm.Algorithm"
             }, 
+            "QGISSETSTYLEFORRASTERLAYER_1": {
+                "values": {
+                    "name": "QGISSETSTYLEFORRASTERLAYER_1", 
+                    "paramsFolded": true, 
+                    "outputs": {}, 
+                    "outputsFolded": true, 
+                    "pos": {
+                        "values": {
+                            "y": 628.0, 
+                            "x": 470.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "dependencies": [], 
+                    "params": {
+                        "INPUT": {
+                            "values": {
+                                "alg": "SCRIPTADDRASTER_1", 
+                                "output": "output_raster"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }, 
+                        "STYLE": {
+                            "values": {
+                                "alg": "SCRIPTSAVERASTERSTYLE_1", 
+                                "output": "style_file"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromOutput"
+                        }
+                    }, 
+                    "active": true, 
+                    "consoleName": "qgis:setstyleforrasterlayer", 
+                    "description": "Set style for raster layer"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }, 
             "SCRIPTGENERATEX3DAPPEARANCE_1": {
                 "values": {
                     "name": "SCRIPTGENERATEX3DAPPEARANCE_1", 
@@ -498,8 +626,8 @@
                     "outputsFolded": true, 
                     "pos": {
                         "values": {
-                            "y": 468.0, 
-                            "x": 577.0
+                            "y": 483.0, 
+                            "x": 610.0
                         }, 
                         "class": "point"
                     }, 
