@@ -27,7 +27,8 @@ if server_pid is not None:
     pid = int(server_pid)
     try:
         if sys.platform.startswith('win'):
-            QProcess('TASKKILL /F /PID %s' % pid)
+            print('TASKKILL /PID %s' % pid)
+            print(QProcess.execute('TASKKILL /PID %s' % pid))
         else:
             os.kill(pid,  11)
     except:
