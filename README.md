@@ -8,7 +8,7 @@ Steps to try out:
 3. crop and downsample to ca. 500x500 pixels, warp to longlat WGS84 (not necessary for sample DEM)
 4. set additional no data value in Properties - Transparency (to 0 in above DEM)
 5. get all processing scripts and models from here: https://github.com/andreasplesch/QGIS-X3D-Processing/archive/master.zip
-6. load into qgis
+6. load into qgis, by copying into USER/.qgis2/processing/scripts|models
 7. run raster2x3dom02 model
 8. open resulting html file
 
